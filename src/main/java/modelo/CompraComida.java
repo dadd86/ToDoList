@@ -5,14 +5,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Clase que representa la entidad "CompraVarios" en la base de datos.
+ * Clase que representa la entidad "CompraComida" en la base de datos.
  *
- * Esta clase almacena información sobre los productos relacionados con compras variadas.
+ * Esta clase almacena información sobre los productos relacionados con compras de comida.
  * Incluye validaciones, generación automática de números únicos para fotos, y un logger para registrar eventos importantes.
  *
  * **Características:**
  * - Almacena datos como nombre, descripción, cantidad, foto asociada, y estado de la compra.
- * - Si "Foto" es true, genera automáticamente un número único para "NumeroUnicoFoto".
+ * - Si "foto" es true, genera automáticamente un número único para "NumeroUnicoFoto".
  *
  * **Restricciones:**
  * - El nombre del producto no puede ser nulo ni vacío.
@@ -25,10 +25,10 @@ import org.slf4j.LoggerFactory;
  * @since 2024
  */
 @Entity
-@Table(name = "CompraVarios")
-public class ComprarVarios {
+@Table(name = "CompraComida")
+public class CompraComida {
 
-    private static final Logger logger = LoggerFactory.getLogger(ComprarVarios.class);
+    private static final Logger logger = LoggerFactory.getLogger(CompraComida.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,7 +64,7 @@ public class ComprarVarios {
      * @param realizado Indica si la compra ha sido realizada.
      * @throws Exception Si ocurre un error al generar el número único para fotos.
      */
-    public ComprarVarios(String nombreProducto, String descripcion, boolean foto, Integer numeroUnicoFoto, int cantidad, boolean realizado) throws Exception {
+    public CompraComida(String nombreProducto, String descripcion, boolean foto, Integer numeroUnicoFoto, int cantidad, boolean realizado) throws Exception {
         // Validaciones
         if (nombreProducto == null || nombreProducto.isBlank()) {
             throw new IllegalArgumentException("El nombre del producto no puede ser vacío o nulo.");
@@ -93,19 +93,19 @@ public class ComprarVarios {
         this.cantidad = cantidad;
         this.realizado = realizado;
 
-        logger.info("CompraVarios creada exitosamente: {}", this);
+        logger.info("CompraComida creada exitosamente: {}", this);
     }
 
     /**
      * Constructor vacío requerido por JPA.
      */
-    public ComprarVarios() {
+    public CompraComida() {
     }
 
     // Métodos auxiliares
 
     /**
-     * Obtiene el último número único generado en la tabla "CompraVarios".
+     * Obtiene el último número único generado en la tabla "CompraComida".
      *
      * @return El último valor de NumeroUnicoFoto o 0 si no existen registros.
      * @throws Exception Si ocurre un error al interactuar con la base de datos.
@@ -115,7 +115,7 @@ public class ComprarVarios {
 
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT MAX(NumeroUnicoFoto) AS LastNumero FROM CompraVarios")) {
+             ResultSet resultSet = statement.executeQuery("SELECT MAX(NumeroUnicoFoto) AS LastNumero FROM CompraComida")) {
 
             if (resultSet.next()) {
                 lastNumero = resultSet.getInt("LastNumero");
@@ -204,7 +204,7 @@ public class ComprarVarios {
 
     @Override
     public String toString() {
-        return "ComprarVarios{" +
+        return "CompraComida{" +
                 "idUnico=" + idUnico +
                 ", nombreProducto='" + nombreProducto + '\'' +
                 ", descripcion='" + descripcion + '\'' +
