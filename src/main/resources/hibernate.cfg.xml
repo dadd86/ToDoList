@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+
+    <!-- Configuración de conexión a la base de datos -->
+    <property name="connection.url">
+      jdbc:mysql://localhost:3306/todolist?serverTimezone=UTC
+    </property>
+    <property name="connection.driver_class">
+      com.mysql.cj.jdbc.Driver
+    </property>
+    <property name="connection.username">root</property>
+    <!--<property name="connection.password">Admin</property> -->
+    <property name="connection.password">Admin</property> <!-- Se recomienda usar variables de entorno -->
+
+    <!-- Dialecto: Permite que Hibernate traduzca HQL a SQL específico para MySQL -->
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+    <!-- Configuración de visualización de SQL -->
+    <property name="show_sql">true</property> <!-- Muestra las sentencias SQL generadas -->
+    <property name="format_sql">true</property> <!-- Formatea las sentencias SQL para mayor claridad -->
+
+    <!-- Contexto de sesión actual -->
+    <property name="current_session_context_class">thread</property>
+
+    <!-- Estrategia de validación del esquema -->
+    <property name="hibernate.hbm2ddl.auto">validate</property>
+    <!--
+      Opciones:
+      - validate: Comprueba que la base de datos cumpla con el esquema definido en las entidades.
+      - update: Actualiza el esquema de la base de datos si es necesario.
+      - create: Crea el esquema desde cero en cada inicio (puede borrar datos existentes).
+      - create-drop: Similar a create, pero elimina el esquema al finalizar.
+    -->
+
+    <!-- Mapeo de entidades -->
+
+
+  </session-factory>
+</hibernate-configuration>
