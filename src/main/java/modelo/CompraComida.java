@@ -1,95 +1,111 @@
 package modelo;
 
-import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Clase que representa la entidad "CompraComida" en la base de datos.
+ * Modelo que representa la entidad "CompraComida" para ser gestionada con Hibernate.
  *
- * Esta clase almacena información sobre los productos relacionados con compras de comida.
- * Incluye validaciones, generación automática de números únicos para fotos, y un logger para registrar eventos importantes.
+ * **Propósito:**
+ * Gestionar los datos de compras relacionadas con comida, validando la consistencia y permitiendo
+ * el acceso a través de getters y setters.
  *
  * **Características:**
- * - Almacena datos como nombre, descripción, cantidad, foto asociada, y estado de la compra.
- * - Si "foto" es true, genera automáticamente un número único para "NumeroUnicoFoto".
+ * - Almacena datos sobre nombre, descripción, cantidad, estado de compra, y si está asociada a una foto.
+ * - Proporciona validaciones estrictas para asegurar la integridad de los datos.
+ * - Incluye un logger para registrar eventos importantes.
  *
  * **Restricciones:**
  * - El nombre del producto no puede ser nulo ni vacío.
  * - La descripción no puede ser nula ni vacía.
- * - La cantidad debe ser mayor que 0.
- * - Si `Foto` es `true`, `NumeroUnicoFoto` debe ser un número único positivo.
+ * - La cantidad debe ser mayor a 0.
+ * - Si `foto` es `true`, el número único de la foto (`numeroUnicoFoto`) debe ser un valor positivo.
  *
- * @author [Tu Nombre]
- * @version 1.1
+ * **Relación con Hibernate:**
+ * Este modelo será gestionado por Hibernate en la capa DAO para realizar operaciones CRUD.
+ *
+ * @author Diego
+ * @version 1.3
  * @since 2024
  */
-@Entity
-@Table(name = "CompraComida")
 public class CompraComida {
 
     private static final Logger logger = LoggerFactory.getLogger(CompraComida.class);
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IdUnico", nullable = false, updatable = false)
+    /**
+     * Identificador único del registro.
+     */
     private int idUnico;
 
-    @Column(name = "NombreProducto", nullable = false, length = 255)
+    /**
+     * Nombre del producto comprado.
+     */
     private String nombreProducto;
 
-    @Column(name = "Descripcion", nullable = false, length = 455)
+    /**
+     * Descripción del producto.
+     */
     private String descripcion;
 
-    @Column(name = "Foto", nullable = false)
+    /**
+     * Indica si la compra tiene una foto asociada.
+     */
     private boolean foto;
 
-    @Column(name = "NumeroUnicoFoto")
+    /**
+     * Número único asociado a la foto del producto.
+     * Si `foto` es `true`, este campo debe tener un valor positivo.
+     */
     private Integer numeroUnicoFoto;
 
-    @Column(name = "Cantidad", nullable = false)
+    /**
+     * Cantidad de productos comprados.
+     */
     private int cantidad;
 
-    @Column(name = "Realizado", nullable = false)
+    /**
+     * Indica si la compra ha sido realizada.
+     */
     private boolean realizado;
 
+    // ========================
+    // Constructores
+    // ========================
+
     /**
-     * Constructor con parámetros para inicializar los atributos de la clase.
+     * Constructor con parámetros para inicializar el modelo.
+     *
+     * **Validaciones:**
+     * - Asegura que los datos ingresados cumplan con las restricciones del modelo.
      *
      * @param nombreProducto Nombre del producto comprado.
-     * @param descripcion Descripción del producto.
+     * @param descripcion Descripción detallada del producto.
      * @param foto Indica si el producto tiene una foto asociada.
-     * @param numeroUnicoFoto Número único asociado a la foto del producto.
-     * @param cantidad Cantidad de productos comprados.
-     * @param realizado Indica si la compra ha sido realizada.
-     * @throws Exception Si ocurre un error al generar el número único para fotos.
+     * @param numeroUnicoFoto Número único de la foto (se asignará automáticamente si es nulo).
+     * @param cantidad Cantidad del producto comprado (debe ser mayor a 0).
+     * @param realizado Indica si la compra ya ha sido realizada.
+     * @throws IllegalArgumentException Si alguno de los valores no cumple con las restricciones.
      */
-    public CompraComida(String nombreProducto, String descripcion, boolean foto, Integer numeroUnicoFoto, int cantidad, boolean realizado) throws Exception {
-        // Validaciones
-        if (nombreProducto == null || nombreProducto.isBlank()) {
-            throw new IllegalArgumentException("El nombre del producto no puede ser vacío o nulo.");
-        }
-        if (descripcion == null || descripcion.isBlank()) {
-            throw new IllegalArgumentException("La descripción del producto no puede ser vacía o nula.");
-        }
-        if (cantidad <= 0) {
-            throw new IllegalArgumentException("La cantidad debe ser mayor que cero.");
-        }
+    public CompraComida(String nombreProducto, String descripcion, boolean foto, Integer numeroUnicoFoto, int cantidad, boolean realizado) {
+        validarNombreProducto(nombreProducto);
+        validarDescripcion(descripcion);
+        validarCantidad(cantidad);
 
-        // Generar automáticamente un número único para fotos si es necesario
-        if (foto) {
-            if (numeroUnicoFoto == null || numeroUnicoFoto <= 0) {
-                numeroUnicoFoto = getLastNumeroUnicoFoto() + 1;
-            }
-        } else {
-            numeroUnicoFoto = null; // Si no hay foto, no se necesita un número único
-        }
-
-        // Asignar valores
         this.nombreProducto = nombreProducto;
         this.descripcion = descripcion;
         this.foto = foto;
-        this.numeroUnicoFoto = numeroUnicoFoto;
+
+        if (foto) {
+            if (numeroUnicoFoto == null || numeroUnicoFoto <= 0) {
+                this.numeroUnicoFoto = 1; // Este valor puede ser ajustado en el DAO
+                logger.warn("Número único de foto no proporcionado. Se asigna temporalmente el valor: 1");
+            } else {
+                this.numeroUnicoFoto = numeroUnicoFoto;
+            }
+        } else {
+            this.numeroUnicoFoto = null;
+        }
+
         this.cantidad = cantidad;
         this.realizado = realizado;
 
@@ -97,35 +113,14 @@ public class CompraComida {
     }
 
     /**
-     * Constructor vacío requerido por JPA.
+     * Constructor vacío requerido para el uso con Hibernate.
      */
     public CompraComida() {
     }
 
-    // Métodos auxiliares
-
-    /**
-     * Obtiene el último número único generado en la tabla "CompraComida".
-     *
-     * @return El último valor de NumeroUnicoFoto o 0 si no existen registros.
-     * @throws Exception Si ocurre un error al interactuar con la base de datos.
-     */
-    private int getLastNumeroUnicoFoto() throws Exception {
-        int lastNumero = 0;
-
-        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT MAX(NumeroUnicoFoto) AS LastNumero FROM CompraComida")) {
-
-            if (resultSet.next()) {
-                lastNumero = resultSet.getInt("LastNumero");
-            }
-        }
-
-        return lastNumero;
-    }
-
+    // ========================
     // Getters y Setters
+    // ========================
 
     public int getIdUnico() {
         return idUnico;
@@ -140,9 +135,7 @@ public class CompraComida {
     }
 
     public void setNombreProducto(String nombreProducto) {
-        if (nombreProducto == null || nombreProducto.isBlank()) {
-            throw new IllegalArgumentException("El nombre del producto no puede ser vacío o nulo.");
-        }
+        validarNombreProducto(nombreProducto);
         this.nombreProducto = nombreProducto;
     }
 
@@ -151,9 +144,7 @@ public class CompraComida {
     }
 
     public void setDescripcion(String descripcion) {
-        if (descripcion == null || descripcion.isBlank()) {
-            throw new IllegalArgumentException("La descripción del producto no puede ser vacía o nula.");
-        }
+        validarDescripcion(descripcion);
         this.descripcion = descripcion;
     }
 
@@ -161,16 +152,9 @@ public class CompraComida {
         return foto;
     }
 
-    public void setFoto(boolean foto) throws Exception {
+    public void setFoto(boolean foto) {
         this.foto = foto;
-
-        if (foto) {
-            // Generar automáticamente un número único si no está asignado
-            if (this.numeroUnicoFoto == null || this.numeroUnicoFoto <= 0) {
-                this.numeroUnicoFoto = getLastNumeroUnicoFoto() + 1;
-            }
-        } else {
-            // Limpiar el número único si no hay foto
+        if (!foto) {
             this.numeroUnicoFoto = null;
         }
     }
@@ -180,6 +164,10 @@ public class CompraComida {
     }
 
     public void setNumeroUnicoFoto(Integer numeroUnicoFoto) {
+        if (numeroUnicoFoto != null && numeroUnicoFoto <= 0) {
+            logger.error("Validación fallida: El número único de la foto debe ser mayor que 0.");
+            throw new IllegalArgumentException("El número único de la foto debe ser mayor que 0.");
+        }
         this.numeroUnicoFoto = numeroUnicoFoto;
     }
 
@@ -188,9 +176,7 @@ public class CompraComida {
     }
 
     public void setCantidad(int cantidad) {
-        if (cantidad <= 0) {
-            throw new IllegalArgumentException("La cantidad debe ser mayor que cero.");
-        }
+        validarCantidad(cantidad);
         this.cantidad = cantidad;
     }
 
@@ -213,5 +199,48 @@ public class CompraComida {
                 ", cantidad=" + cantidad +
                 ", realizado=" + realizado +
                 '}';
+    }
+
+    // ========================
+    // Métodos privados de validación
+    // ========================
+
+    /**
+     * Valida el nombre del producto.
+     *
+     * @param nombreProducto Nombre a validar.
+     * @throws IllegalArgumentException Si el nombre es nulo o vacío.
+     */
+    private void validarNombreProducto(String nombreProducto) {
+        if (nombreProducto == null || nombreProducto.isBlank()) {
+            logger.error("El nombre del producto no puede ser vacío o nulo.");
+            throw new IllegalArgumentException("El nombre del producto no puede ser vacío o nulo.");
+        }
+    }
+
+    /**
+     * Valida la descripción del producto.
+     *
+     * @param descripcion Descripción a validar.
+     * @throws IllegalArgumentException Si la descripción es nula o vacía.
+     */
+    private void validarDescripcion(String descripcion) {
+        if (descripcion == null || descripcion.isBlank()) {
+            logger.error("La descripción no puede ser vacía o nula.");
+            throw new IllegalArgumentException("La descripción no puede ser vacía o nula.");
+        }
+    }
+
+    /**
+     * Valida la cantidad del producto.
+     *
+     * @param cantidad Cantidad a validar.
+     * @throws IllegalArgumentException Si la cantidad no es mayor a 0.
+     */
+    private void validarCantidad(int cantidad) {
+        if (cantidad <= 0) {
+            logger.error("La cantidad debe ser mayor que 0.");
+            throw new IllegalArgumentException("La cantidad debe ser mayor que 0.");
+        }
     }
 }
