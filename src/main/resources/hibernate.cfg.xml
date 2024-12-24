@@ -3,41 +3,69 @@
         "-//Hibernate/Hibernate Configuration DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
+
+  <!-- Configuración del SessionFactory, punto de entrada para las sesiones de Hibernate -->
   <session-factory>
 
     <!-- Configuración de conexión a la base de datos -->
     <property name="connection.url">
+      <!-- URL de conexión a la base de datos MySQL -->
       jdbc:mysql://localhost:3306/todolist?serverTimezone=UTC
     </property>
+
     <property name="connection.driver_class">
+      <!-- Driver JDBC para MySQL -->
       com.mysql.cj.jdbc.Driver
     </property>
-    <property name="connection.username">root</property>
-    <!--<property name="connection.password">Admin</property> -->
-    <property name="connection.password">Admin</property> <!-- Se recomienda usar variables de entorno -->
 
-    <!-- Dialecto: Permite que Hibernate traduzca HQL a SQL específico para MySQL -->
-    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="connection.username">
+      <!-- Nombre de usuario para la base de datos -->
+      root
+    </property>
 
-    <!-- Configuración de visualización de SQL -->
-    <property name="show_sql">true</property> <!-- Muestra las sentencias SQL generadas -->
-    <property name="format_sql">true</property> <!-- Formatea las sentencias SQL para mayor claridad -->
+    <!-- Es recomendable no almacenar contraseñas en el código, usar variables de entorno o un archivo de configuración separado -->
+    <property name="connection.password">
+      <!-- Contraseña de la base de datos -->
+      Admin
+    </property>
 
-    <!-- Contexto de sesión actual -->
-    <property name="current_session_context_class">thread</property>
+    <!-- Dialecto que Hibernate usará para generar las sentencias SQL específicas para MySQL -->
+    <property name="dialect">
+      org.hibernate.dialect.MySQLDialect
+    </property>
 
-    <!-- Estrategia de validación del esquema -->
-    <property name="hibernate.hbm2ddl.auto">validate</property>
+    <!-- Configuración para mostrar las sentencias SQL generadas -->
+    <property name="show_sql">
+      true
+    </property>
+
+    <!-- Formatea las sentencias SQL generadas para mayor claridad en los logs -->
+    <property name="format_sql">
+      true
+    </property>
+
+    <!-- Configura el contexto de sesión actual. 'thread' significa que la sesión está asociada a cada hilo -->
+    <property name="current_session_context_class">
+      thread
+    </property>
+
+    <!-- Estrategia de validación del esquema de la base de datos -->
+    <property name="hibernate.hbm2ddl.auto">
+      validate
+    </property>
+
     <!--
-      Opciones:
-      - validate: Comprueba que la base de datos cumpla con el esquema definido en las entidades.
-      - update: Actualiza el esquema de la base de datos si es necesario.
-      - create: Crea el esquema desde cero en cada inicio (puede borrar datos existentes).
-      - create-drop: Similar a create, pero elimina el esquema al finalizar.
+      Las opciones posibles son:
+      - validate: Hibernate valida que el esquema de la base de datos coincida con las entidades (sin modificar la base de datos).
+      - update: Hibernate actualiza el esquema de la base de datos si detecta cambios en las entidades.
+      - create: Hibernate crea el esquema de la base de datos desde cero (puede borrar datos existentes).
+      - create-drop: Similar a create, pero elimina el esquema al finalizar la sesión de la aplicación.
     -->
 
-    <!-- Mapeo de entidades -->
-
+    <!-- Mapeo de las clases de entidad que Hibernate debe gestionar -->
+    <mapping class="modelo.CompraComida"/>
+    <mapping class="modelo.ComprarVarios"/>
+    <mapping class="modelo.CompraLimpieza"/>
 
   </session-factory>
 </hibernate-configuration>

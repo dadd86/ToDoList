@@ -1,11 +1,11 @@
 package dao;
 
+import Util.HibernateUtil;
 import excepciones.CompraComidaNotFoundException;
-import modelo.CompraComida;
+import modelo.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,23 +13,31 @@ import java.util.List;
 
 /**
  * Implementación de la interfaz CompraComidaDAO utilizando Hibernate.
+ * <p>Esta clase gestiona las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre la entidad CompraComida
+ * y maneja las transacciones de manera segura y eficiente.</p>
  *
- * **Responsabilidades:**
- * - Realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre la entidad CompraComida.
- * - Gestionar transacciones de manera segura y eficiente.
- * - Registrar eventos significativos y errores mediante logs.
+ * <p><strong>Responsabilidades:</strong></p>
+ * <ul>
+ *     <li>Realizar operaciones CRUD sobre la entidad CompraComida.</li>
+ *     <li>Gestionar transacciones de Hibernate de manera segura.</li>
+ *     <li>Registrar eventos significativos y errores mediante logs para facilitar el diagnóstico.</li>
+ * </ul>
  *
- * **Características:**
- * - Validación estricta de datos de entrada.
- * - Manejo robusto de excepciones para garantizar estabilidad.
- * - Uso de `try-with-resources` para garantizar el cierre automático de recursos.
+ * <p><strong>Mejoras en Seguridad y Robustez:</strong></p>
+ * <ul>
+ *     <li>Validación estricta de los parámetros antes de realizar operaciones en la base de datos.</li>
+ *     <li>Uso de transacciones para asegurar la integridad de los datos.</li>
+ *     <li>Manejo centralizado de excepciones con mensajes claros para facilitar la resolución de problemas.</li>
+ * </ul>
  *
- * **Requisitos:**
- * - Archivo de configuración `hibernate.cfg.xml` correctamente configurado.
- * - Entidad `CompraComida` definida con anotaciones Hibernate.
+ * <p><strong>Requisitos:</strong></p>
+ * <ul>
+ *     <li>Archivo de configuración `hibernate.cfg.xml` correctamente configurado.</li>
+ *     <li>Entidad `CompraComida` definida con anotaciones de Hibernate.</li>
+ * </ul>
  *
  * @author Diego Diaz
- * @version 1.4
+ * @version 1.5
  * @since 2024
  */
 public class CompraComidaDAOImpl implements CompraComidaDAO {
@@ -38,17 +46,16 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
     private final SessionFactory sessionFactory;
 
     /**
-     * Constructor que inicializa el SessionFactory para manejar sesiones de Hibernate.
+     * Constructor que inicializa el `SessionFactory` para manejar sesiones de Hibernate.
      *
-     * **Validaciones:**
-     * - Si el archivo de configuración es inválido, se lanza una excepción de tiempo de ejecución.
+     * <p><strong>Validaciones:</strong></p>
+     * <ul>
+     *     <li>Si el archivo de configuración `hibernate.cfg.xml` es inválido, se lanza una excepción.</li>
+     * </ul>
      */
     public CompraComidaDAOImpl() {
         try {
-            sessionFactory = new Configuration()
-                    .configure("hibernate.cfg.xml")
-                    .addAnnotatedClass(CompraComida.class)
-                    .buildSessionFactory();
+            sessionFactory = HibernateUtil.getSessionFactory();  // Utiliza el HibernateUtil para la sesión.
             logger.info("SessionFactory inicializado correctamente.");
         } catch (Exception e) {
             logger.error("Error al inicializar el SessionFactory: {}", e.getMessage());
@@ -59,18 +66,22 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
     /**
      * Agrega un nuevo registro de CompraComida.
      *
-     * **Validaciones:**
-     * - Los datos son validados antes de enviarse a la base de datos.
+     * <p><strong>Validaciones:</strong></p>
+     * <ul>
+     *     <li>Los datos de `CompraComida` son validados antes de realizar la inserción.</li>
+     * </ul>
      *
-     * **Gestión de Excepciones:**
-     * - Si ocurre un error durante la operación, se registra y se revierte la transacción.
+     * <p><strong>Gestión de Excepciones:</strong></p>
+     * <ul>
+     *     <li>Si ocurre un error durante la operación, se registra el error y se revierte la transacción.</li>
+     * </ul>
      *
-     * @param compraComida Objeto CompraComida con los datos a insertar.
+     * @param compraComida Objeto `CompraComida` con los datos a insertar.
      * @return `true` si la operación fue exitosa, `false` en caso contrario.
      */
     @Override
     public boolean agregarCompra(CompraComida compraComida) {
-        validarCompraComida(compraComida);
+        validarCompraComida(compraComida);  // Validación previa
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
@@ -79,7 +90,9 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
             logger.info("CompraComida agregada exitosamente: {}", compraComida);
             return true;
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             logger.error("Error al agregar CompraComida: {}", e.getMessage());
             return false;
         }
@@ -88,16 +101,18 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
     /**
      * Obtiene todos los registros de CompraComida desde la base de datos.
      *
-     * **Gestión de Excepciones:**
-     * - Si ocurre un error, se registra y se retorna `null`.
+     * <p><strong>Gestión de Excepciones:</strong></p>
+     * <ul>
+     *     <li>Si ocurre un error, se registra el error y se retorna `null`.</li>
+     * </ul>
      *
-     * @return Lista de objetos CompraComida, o `null` si ocurre un error.
+     * @return Lista de objetos `CompraComida`, o `null` si ocurre un error.
      */
     @Override
     @SuppressWarnings("unchecked")
     public List<CompraComida> obtenerTodasLasCompras() {
         try (Session session = sessionFactory.openSession()) {
-            List<CompraComida> compras = session.createQuery("FROM CompraComida", CompraComida.class).list();
+            List<CompraComida> compras = session.createQuery("from CompraComida", CompraComida.class).list();
             logger.info("Se recuperaron {} compras de CompraComida.", compras.size());
             return compras;
         } catch (Exception e) {
@@ -109,18 +124,22 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
     /**
      * Actualiza un registro existente de CompraComida en la base de datos.
      *
-     * **Validaciones:**
-     * - El objeto debe ser no nulo y tener un identificador válido.
+     * <p><strong>Validaciones:</strong></p>
+     * <ul>
+     *     <li>El objeto `CompraComida` debe ser no nulo y tener un identificador válido.</li>
+     * </ul>
      *
-     * **Gestión de Excepciones:**
-     * - Si ocurre un error, se registra y se revierte la transacción.
+     * <p><strong>Gestión de Excepciones:</strong></p>
+     * <ul>
+     *     <li>Si ocurre un error, se registra y se revierte la transacción.</li>
+     * </ul>
      *
-     * @param compraComida Objeto CompraComida con los datos actualizados.
+     * @param compraComida Objeto `CompraComida` con los datos actualizados.
      * @return `true` si la operación fue exitosa, `false` en caso contrario.
      */
     @Override
     public boolean actualizarCompra(CompraComida compraComida) {
-        validarCompraComida(compraComida);
+        validarCompraComida(compraComida);  // Validación previa
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
@@ -129,7 +148,9 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
             logger.info("CompraComida actualizada exitosamente: {}", compraComida);
             return true;
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             logger.error("Error al actualizar CompraComida: {}", e.getMessage());
             return false;
         }
@@ -138,12 +159,16 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
     /**
      * Elimina un registro existente de CompraComida en la base de datos.
      *
-     * **Validaciones:**
-     * - El identificador debe ser mayor que cero.
+     * <p><strong>Validaciones:</strong></p>
+     * <ul>
+     *     <li>El identificador debe ser mayor que cero.</li>
+     * </ul>
      *
-     * **Gestión de Excepciones:**
-     * - Si el registro no existe, lanza una excepción específica.
-     * - Si ocurre otro error, se registra y se revierte la transacción.
+     * <p><strong>Gestión de Excepciones:</strong></p>
+     * <ul>
+     *     <li>Si el registro no existe, lanza una excepción específica.</li>
+     *     <li>Si ocurre otro error, se revierte la transacción y se registra el error.</li>
+     * </ul>
      *
      * @param idUnico Identificador único del registro a eliminar.
      * @return `true` si la operación fue exitosa, `false` en caso contrario.
@@ -168,7 +193,9 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
             logger.error("Error: {}", e.getMessage());
             return false;
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             logger.error("Error al eliminar CompraComida: {}", e.getMessage());
             return false;
         }
@@ -177,8 +204,10 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
     /**
      * Obtiene el último número único de foto registrado en la base de datos.
      *
-     * **Gestión de Excepciones:**
-     * - Si ocurre un error, se registra y retorna `0`.
+     * <p><strong>Gestión de Excepciones:</strong></p>
+     * <ul>
+     *     <li>Si ocurre un error, se registra y retorna `0`.</li>
+     * </ul>
      *
      * @return El valor máximo de `numeroUnicoFoto`, o `0` si no hay registros.
      */
@@ -197,10 +226,12 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
     }
 
     /**
-     * Cierra el SessionFactory para liberar recursos.
+     * Cierra el `SessionFactory` para liberar recursos.
      *
-     * **Gestión de Excepciones:**
-     * - Si ocurre un error al cerrar el recurso, este es registrado.
+     * <p><strong>Gestión de Excepciones:</strong></p>
+     * <ul>
+     *     <li>Si ocurre un error al cerrar el recurso, este es registrado.</li>
+     * </ul>
      */
     @Override
     public void cerrar() {
@@ -217,9 +248,12 @@ public class CompraComidaDAOImpl implements CompraComidaDAO {
     /**
      * Valida los datos del objeto CompraComida antes de interactuar con la base de datos.
      *
-     * **Validaciones:**
-     * - Los campos obligatorios no deben ser nulos o vacíos.
-     * - La cantidad debe ser mayor que cero.
+     * <p><strong>Validaciones:</strong></p>
+     * <ul>
+     *     <li>El nombre del producto no puede ser nulo o vacío.</li>
+     *     <li>La descripción no puede ser nula o vacía.</li>
+     *     <li>La cantidad debe ser mayor que cero.</li>
+     * </ul>
      *
      * @param compraComida Objeto a validar.
      * @throws IllegalArgumentException Si alguno de los campos no cumple con las restricciones.

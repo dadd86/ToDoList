@@ -29,17 +29,25 @@ public class HibernateUtil {
 
     /**
      * Registro de servicios estándar utilizado para configurar Hibernate.
+     * Este objeto es parte de la configuración de Hibernate, gestionando todos los servicios necesarios para la sesión.
      */
     private static StandardServiceRegistry registry;
 
     /**
      * Fábrica de sesiones Hibernate.
+     * Este objeto es la fábrica que se utiliza para obtener sesiones de Hibernate y realizar operaciones con la base de datos.
      */
     private static SessionFactory sessionFactory;
 
     /**
      * Devuelve el objeto `SessionFactory`, creando uno nuevo si no existe.
      * Este método está diseñado para ser seguro en entornos multi-hilo.
+     *
+     * <p>En primer lugar, se verifica si la fábrica de sesiones ya existe. Si no es así,
+     * se realiza una configuración y creación segura del `SessionFactory` con sincronización de acceso.</p>
+     *
+     * <p>Este método está optimizado para ser seguro en un entorno con múltiples hilos (thread-safe),
+     * utilizando la técnica de doble comprobación (double-checked locking).</p>
      *
      * @return La instancia única de `SessionFactory`.
      */
@@ -50,9 +58,11 @@ public class HibernateUtil {
                     try {
                         // Crear el registro de servicios estándar
                         registry = new StandardServiceRegistryBuilder().configure().build();
+
                         // Crear los metadatos desde las configuraciones
                         MetadataSources sources = new MetadataSources(registry);
                         Metadata metadata = sources.getMetadataBuilder().build();
+
                         // Crear la fábrica de sesiones
                         sessionFactory = metadata.getSessionFactoryBuilder().build();
                     } catch (Exception e) {
@@ -62,6 +72,7 @@ public class HibernateUtil {
                         if (registry != null) {
                             StandardServiceRegistryBuilder.destroy(registry);
                         }
+                        // Lanzar una excepción detallada con el mensaje de error
                         throw new ExceptionInInitializerError("Error al inicializar Hibernate SessionFactory: " + e.getMessage());
                     }
                 }
@@ -73,13 +84,15 @@ public class HibernateUtil {
     /**
      * Apaga el `SessionFactory` y destruye el registro de servicios estándar.
      * Este método debe ser llamado al cerrar la aplicación para liberar recursos.
+     * Se asegura de que el `SessionFactory` se cierre correctamente y que todos los recursos asociados sean liberados.
+     * <p>Utiliza un chequeo para asegurarse de que el `SessionFactory` no esté cerrado antes de intentar cerrarlo.</p>
      */
     public static void shutdown() {
         if (sessionFactory != null && !sessionFactory.isClosed()) {
-            sessionFactory.close();
+            sessionFactory.close(); // Cerrar el SessionFactory
         }
         if (registry != null) {
-            StandardServiceRegistryBuilder.destroy(registry);
+            StandardServiceRegistryBuilder.destroy(registry); // Destruir el registro de servicios
         }
     }
 }

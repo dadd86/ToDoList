@@ -1,5 +1,6 @@
 package modelo;
 
+import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +29,8 @@ import org.slf4j.LoggerFactory;
  * @version 1.3
  * @since 2024
  */
+@Entity
+@Table(name = "CompraComida")
 public class CompraComida {
 
     private static final Logger logger = LoggerFactory.getLogger(CompraComida.class);
@@ -35,37 +38,46 @@ public class CompraComida {
     /**
      * Identificador único del registro.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IdUnico", nullable = false, updatable = false)
     private int idUnico;
 
     /**
      * Nombre del producto comprado.
      */
+    @Column(name = "NombreProducto", nullable = false, length = 255)
     private String nombreProducto;
 
     /**
      * Descripción del producto.
      */
+    @Column(name = "Descripcion", nullable = false, length = 455)
     private String descripcion;
 
     /**
      * Indica si la compra tiene una foto asociada.
      */
+    @Column(name = "Foto", nullable = false)
     private boolean foto;
 
     /**
      * Número único asociado a la foto del producto.
      * Si `foto` es `true`, este campo debe tener un valor positivo.
      */
+    @Column(name = "NumeroUnicoFoto")
     private Integer numeroUnicoFoto;
 
     /**
      * Cantidad de productos comprados.
      */
+    @Column(name = "Cantidad", nullable = false)
     private int cantidad;
 
     /**
      * Indica si la compra ha sido realizada.
      */
+    @Column(name = "Realizado", nullable = false)
     private boolean realizado;
 
     // ========================
