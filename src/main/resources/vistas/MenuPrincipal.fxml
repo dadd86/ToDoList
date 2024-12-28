@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="vista.gestionMenuPrincipal.MenuPrincipal">
+    <children>
+        <!-- VBox centrado dinámicamente dentro del AnchorPane-->
+        <VBox alignment="CENTER" spacing ="20." styleClass="contenedor-principal" AnchorPane.topAnchor="50.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="50.0">
+            <children>
+                <!--Titulos-->
+                <Label text="To do List App" styleClass="titulo-principal"/>
+                <Separator />
+                <!--Botones-->
+                <Button fx:id="btnNuevaTarea" text="Tareas Nueva" onAction="#NuevaTarea"/>
+                <Button fx:id="btnTareaPendiente" text="Tareas Pendientes" onAction="#TareaPendiente"/>
+                <Button fx:id="btnTareaFinalizada" text="Tareas Finalizadas" onAction="#TareaFinalizadas"/>
+                <Button fx:id="btnAgregarElementos" text="Tareas Elementos" onAction="#AgregarElementos"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

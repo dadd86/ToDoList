@@ -1,0 +1,142 @@
+/* ------------------------------------------
+   Estilos generales para la aplicación
+------------------------------------------ */
+
+/* --- Estilo para las alertas --- */
+.alert {
+    -fx-background-color: #FF6347; /* Color de fondo rojo tomate */
+    -fx-text-fill: white;           /* Color del texto blanco */
+    -fx-padding: 10px;              /* Espaciado interno */
+}
+
+/* --- Contenedor principal --- */
+.contenedor-principal {
+    -fx-background-color: #f0f8ff; /* Fondo azul claro */
+    -fx-padding: 20px;              /* Espaciado interno */
+    -fx-border-radius: 10px;        /* Bordes redondeados */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.5, 0, 0); /* Sombra suave alrededor del contenedor */
+}
+
+/* --- Estilo para títulos --- */
+.titulo-principal {
+    -fx-font-size: 24px;             /* Tamaño de fuente grande */
+    -fx-font-weight: bold;           /* Negrita */
+    -fx-text-fill: #333333;          /* Color gris oscuro para el texto */
+    -fx-padding: 10px 0;             /* Espaciado superior e inferior */
+}
+
+.subtitulo {
+    -fx-font-size: 18px;             /* Tamaño de fuente mediano */
+    -fx-text-fill: #666666;          /* Color gris claro */
+    -fx-padding: 5px 0;              /* Espaciado superior e inferior */
+}
+
+/* --- Estilo para las etiquetas de instrucciones --- */
+.label-instruccion {
+    -fx-font-size: 16px;             /* Tamaño de fuente ligeramente más grande */
+    -fx-text-fill: #666666;          /* Gris claro */
+    -fx-padding: 5px 0;              /* Espaciado superior e inferior */
+}
+
+/* --- Estilo para campos de texto --- */
+.text-field, .date-picker {
+    -fx-font-size: 14px;             /* Tamaño de fuente pequeño */
+    -fx-background-color: #ffffff;   /* Fondo blanco */
+    -fx-border-color: #c0c0c0;       /* Borde gris claro */
+    -fx-border-radius: 5px;          /* Bordes redondeados */
+    -fx-padding: 5px;                /* Espaciado interno */
+}
+
+/* Efecto de hover para campos de texto */
+.text-field:hover, .date-picker:hover {
+    -fx-border-color: #4682B4; /* Cambio de borde a azul acero */
+}
+
+/* --- Estilo para botones --- */
+.button {
+    -fx-background-color: #4682B4; /* Fondo azul acero */
+    -fx-text-fill: white;          /* Texto blanco */
+    -fx-font-size: 16px;           /* Tamaño de fuente */
+    -fx-padding: 10px 20px;        /* Espaciado interno */
+    -fx-border-radius: 10px;       /* Bordes redondeados */
+    -fx-border-color: #3b6a91;     /* Borde azul más oscuro */
+    -fx-border-width: 2px;         /* Ancho del borde */
+    -fx-alignment: center;         /* Alineación centrada */
+}
+
+/* Interacción con el mouse sobre los botones */
+.button:hover {
+    -fx-background-color: #5a9bd5; /* Azul más claro */
+    -fx-cursor: hand;              /* Cambio de cursor a mano */
+}
+
+.button:focused {
+    -fx-border-color: #FF4500;     /* Borde naranja brillante cuando el botón está enfocado */
+    -fx-border-width: 3px;         /* Borde más grueso cuando está enfocado */
+}
+
+/* Estilo específico para el botón de salir */
+.boton-salir {
+    -fx-background-color: #FF6347; /* Rojo tomate */
+    -fx-text-fill: white;          /* Texto blanco */
+}
+
+.boton-salir:hover {
+    -fx-background-color: #FF7F50; /* Coral claro cuando el mouse pasa sobre el botón */
+}
+
+/* --- Estilo para separadores --- */
+.separator {
+    -fx-background-color: #dddddd; /* Separador gris claro */
+    -fx-padding: 10px;              /* Espaciado alrededor del separador */
+}
+
+/* Estilo para el fondo general */
+.root {
+    -fx-background-color: #f9f9f9; /* Fondo gris claro para el área principal */
+}
+
+/* --- Estilo para etiquetas generales --- */
+.label {
+    -fx-font-family: "Arial";      /* Tipo de letra Arial */
+    -fx-font-size: 14px;           /* Tamaño de fuente estándar */
+    -fx-text-fill: #333333;        /* Color gris oscuro para el texto */
+}
+
+/* --- Efectos globales --- */
+/* Sombra global para los contenedores */
+.shadow {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0.7, 0, 0); /* Sombra más pronunciada */
+}
+
+/* --- Estilo para botones principales --- */
+.boton-principal {
+    -fx-background-color: #4682B4; /* Azul acero */
+    -fx-text-fill: white;          /* Texto blanco */
+    -fx-font-size: 14px;           /* Tamaño de fuente */
+    -fx-wrap-text: true;           /* Permite que el texto se ajuste automáticamente */
+    -fx-alignment: center;         /* Alineación centrada */
+    -fx-content-display: center;   /* Asegura que el contenido esté centrado */
+    -fx-border-radius: 10px;       /* Bordes redondeados */
+    -fx-padding: 10;               /* Espaciado interno */
+}
+
+/* Hover sobre botones principales */
+.boton-principal:hover {
+    -fx-background-color: #5a9bd5; /* Azul claro */
+    -fx-cursor: hand;              /* Cambia el cursor */
+}
+
+/* Estilo para botones secundarios */
+.boton-secundario {
+    -fx-background-color: #dcdcdc; /* Gris claro */
+    -fx-text-fill: #333333;        /* Gris oscuro para el texto */
+    -fx-font-size: 14px;           /* Tamaño de fuente */
+    -fx-border-radius: 5px;        /* Bordes redondeados */
+}
+
+/* Hover sobre botones secundarios */
+.boton-secundario:hover {
+    -fx-background-color: #c0c0c0; /* Gris más oscuro al pasar el mouse */
+    -fx-cursor: hand;              /* Cambia el cursor */
+}

@@ -5,55 +5,59 @@ import modelo.CompraLimpieza;
 import java.util.List;
 
 /**
- * Interfaz DAO para manejar las operaciones CRUD de la entidad CompraLimpieza.
- *
- * Define las operaciones básicas que deben ser implementadas para interactuar con la base de datos.
+ * Interfaz que define las operaciones CRUD para la entidad CompraLimpieza utilizando Hibernate.
  *
  * **Responsabilidades:**
- * - Crear un nuevo registro de CompraLimpieza.
- * - Leer registros existentes.
- * - Actualizar registros existentes.
- * - Eliminar registros existentes.
+ * - Definir los métodos necesarios para agregar, actualizar, eliminar y obtener registros de `CompraLimpieza`.
  *
- * @author [Tu Nombre]
+ * **Requisitos:**
+ * - Implementación de los métodos por la clase `CompraLimpiezaDAOImpl`.
+ *
  * @version 1.0
  * @since 2024
  */
 public interface CompraLimpiezaDAO {
 
     /**
-     * Agrega un nuevo registro a la tabla CompraLimpieza.
+     * Agrega un nuevo registro de CompraLimpieza a la base de datos.
      *
-     * @param compraLimpieza Objeto CompraLimpieza con los datos a insertar.
-     * @return true si la operación fue exitosa, false en caso contrario.
+     * @param compra Objeto CompraLimpieza a agregar.
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
      */
-    boolean agregarCompra(CompraLimpieza compraLimpieza);
+    boolean agregarCompra(CompraLimpieza compra);
 
     /**
-     * Obtiene todos los registros de la tabla CompraLimpieza.
+     * Obtiene todos los registros de CompraLimpieza desde la base de datos.
      *
-     * @return Lista de objetos CompraLimpieza.
+     * @return Lista de objetos CompraLimpieza, o `null` si ocurre un error.
      */
     List<CompraLimpieza> obtenerTodasLasCompras();
 
     /**
-     * Actualiza un registro existente en la tabla CompraLimpieza.
+     * Actualiza un registro existente de CompraLimpieza en la base de datos.
      *
-     * @param compraLimpieza Objeto CompraLimpieza con los datos actualizados.
-     * @return true si la operación fue exitosa, false en caso contrario.
+     * @param compra Objeto CompraLimpieza con los datos actualizados.
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
      */
-    boolean actualizarCompra(CompraLimpieza compraLimpieza);
+    boolean actualizarCompra(CompraLimpieza compra);
 
     /**
-     * Elimina un registro de la tabla CompraLimpieza.
+     * Elimina un registro de CompraLimpieza en la base de datos.
      *
      * @param idUnico Identificador único del registro a eliminar.
-     * @return true si la operación fue exitosa, false en caso contrario.
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
      */
     boolean eliminarCompra(int idUnico);
 
     /**
-     * Cierra el recurso SessionFactory.
+     * Obtiene el último número único de foto registrado en la base de datos.
+     *
+     * @return El último número único de foto, o `0` si no existen registros.
+     */
+    int obtenerUltimoNumeroFoto();
+
+    /**
+     * Cierra los recursos utilizados por el DAO para evitar fugas de memoria.
      */
     void cerrar();
 }

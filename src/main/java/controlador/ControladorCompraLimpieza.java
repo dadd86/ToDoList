@@ -1,31 +1,31 @@
 package controlador;
 
-import modelo.CompraComida;
 import modelo.CompraLimpieza;
-import dao.*;
+import dao.CompraLimpiezaDAO;
+import dao.CompraLimpiezaDAOImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 /**
- * Controlador DAO para manejar las operaciones de la entidad CompraLimpieza usando Hibernate.
- *
- * Este controlador gestiona operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en la base de datos,
- * utilizando sesiones Hibernate para interactuar con la tabla CompraLimpieza.
+ * Controlador DAO para manejar las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) de la entidad CompraLimpieza utilizando Hibernate.
  *
  * **Responsabilidades:**
- * - Crear nuevas entradas en la tabla CompraLimpieza.
- * - Leer datos existentes.
- * - Actualizar registros.
- * - Eliminar registros.
+ * - Crear nuevas entradas en la tabla `CompraLimpieza`.
+ * - Leer los registros existentes de compras de limpieza.
+ * - Actualizar registros de compra en la base de datos.
+ * - Eliminar registros de compra de la base de datos.
+ *
+ * **Mejoras en Seguridad y Robustez:**
+ * - Validaciones de entrada estrictas para prevenir la inserción de datos incorrectos.
+ * - Manejo centralizado de excepciones con mensajes claros.
+ * - Uso de logs para registrar eventos significativos y errores.
  *
  * **Requisitos:**
- * - Configuración de Hibernate en el archivo `hibernate.cfg.xml`.
- * - La entidad `CompraLimpieza` debe estar correctamente mapeada con anotaciones JPA.
+ * - Configuración adecuada de Hibernate y entidades mapeadas con anotaciones JPA.
  *
- * @author [Tu Nombre]
- * @version 1.0
+ * @version 1.1
  * @since 2024
  */
 public class ControladorCompraLimpieza {
@@ -34,22 +34,29 @@ public class ControladorCompraLimpieza {
     private final CompraLimpiezaDAO compraLimpiezaDAO;
 
     /**
-     * Constructor que inicializa el SessionFactory para manejar sesiones de Hibernate.
+     * Constructor que inicializa el DAO para realizar operaciones CRUD sobre la entidad CompraLimpieza.
+     * Inicializa el logger para registrar eventos y errores.
      */
     public ControladorCompraLimpieza() {
-        this.compraLimpiezaDAO = new CompraLimpiezaDAOImpl();
-        logger.info("ControladorCompraLimpieza inicializado");
+        this.compraLimpiezaDAO = new CompraLimpiezaDAOImpl();  // Inicia el DAO
+        logger.info("ControladorCompraLimpieza inicializado correctamente.");
     }
 
     /**
-     * Agrega un nuevo registro de CompraComida a la base de datos.
+     * Agrega un nuevo registro de CompraLimpieza a la base de datos.
      *
-     * @param nombreProducto Nombre del producto comprado (no puede ser nulo o vacío).
-     * @param descripcion Descripción del producto (no puede ser nula o vacía).
+     * **Validaciones:**
+     * - Asegura que los parámetros de entrada no sean nulos o vacíos.
+     *
+     * **Gestión de Excepciones:**
+     * - Si ocurre un error, se captura y se registra mediante el logger.
+     *
+     * @param nombreProducto Nombre del producto (no puede ser nulo ni vacío).
+     * @param descripcion Descripción del producto (no puede ser nula ni vacía).
      * @param foto Indica si el producto tiene una foto asociada.
-     * @param cantidad Cantidad de productos comprados (debe ser mayor que cero).
+     * @param cantidad Cantidad de productos comprados (debe ser mayor que 0).
      * @param realizado Indica si la compra ha sido realizada.
-     * @return true si la operación fue exitosa, false en caso contrario.
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
      */
     public boolean agregarCompra(String nombreProducto, String descripcion, boolean foto, int cantidad, boolean realizado) {
         try {
@@ -58,43 +65,46 @@ public class ControladorCompraLimpieza {
             validarDescripcion(descripcion);
             validarCantidad(cantidad);
 
-            // Obtener el último número de foto si es necesario
+            // Generar el número único de foto si es necesario
             Integer numeroUnicoFoto = null;
             if (foto) {
-                numeroUnicoFoto = compraComidaDAO.obtenerUltimoNumeroFoto() + 1;
-                logger.info("Generado número único para foto: {}", numeroUnicoFoto);
+                numeroUnicoFoto = compraLimpiezaDAO.obtenerUltimoNumeroFoto() + 1;  // Obtener el último número y sumarle 1
+                logger.info("Número único generado para la foto: {}", numeroUnicoFoto);
             }
 
-            // Crear instancia del modelo
-            CompraComida compra = new CompraComida(nombreProducto, descripcion, foto, numeroUnicoFoto, cantidad, realizado);
+            // Crear el objeto de compra
+            CompraLimpieza compra = new CompraLimpieza(nombreProducto, descripcion, foto, numeroUnicoFoto, cantidad, realizado);
 
-            // Llamar al DAO para guardar el registro
-            boolean resultado = compraComidaDAO.agregarCompra(compra);
+            // Llamar al DAO para agregar la compra
+            boolean resultado = compraLimpiezaDAO.agregarCompra(compra);
 
             if (resultado) {
-                logger.info("CompraComida agregada exitosamente: {}", compra);
+                logger.info("CompraLimpieza agregada exitosamente: {}", compra);
             }
             return resultado;
 
         } catch (IllegalArgumentException e) {
-            logger.error("Error de validación al agregar CompraComida: {}", e.getMessage());
+            logger.error("Error de validación al agregar CompraLimpieza: {}", e.getMessage());
             return false;
         } catch (Exception e) {
-            logger.error("Error al agregar CompraComida.", e);
+            logger.error("Error inesperado al agregar CompraLimpieza.", e);
             return false;
         }
     }
 
     /**
-     * Obtiene todos los registros de CompraComida desde la base de datos.
+     * Obtiene todos los registros de CompraLimpieza desde la base de datos.
      *
-     * @return Lista de objetos CompraComida, o null si ocurre un error.
+     * **Gestión de Excepciones:**
+     * - Si ocurre un error, se captura y se registra mediante el logger.
+     *
+     * @return Lista de objetos `CompraLimpieza`, o `null` si ocurre un error.
      */
-    public List<CompraComida> obtenerTodasLasCompras() {
+    public List<CompraLimpieza> obtenerTodasLasCompras() {
         try {
-            List<CompraComida> compras = compraComidaDAO.obtenerTodasLasCompras();
+            List<CompraLimpieza> compras = compraLimpiezaDAO.obtenerTodasLasCompras();
             if (compras != null) {
-                logger.info("Se recuperaron {} compras de CompraComida.", compras.size());
+                logger.info("Se recuperaron {} compras de CompraLimpieza.", compras.size());
             }
             return compras;
         } catch (Exception e) {
@@ -104,38 +114,50 @@ public class ControladorCompraLimpieza {
     }
 
     /**
-     * Actualiza un registro existente de CompraComida en la base de datos.
+     * Actualiza un registro existente de CompraLimpieza en la base de datos.
      *
-     * @param compra Objeto CompraComida con los datos actualizados (no puede ser nulo).
-     * @return true si la operación fue exitosa, false en caso contrario.
+     * **Validaciones:**
+     * - El objeto `CompraLimpieza` no puede ser nulo y debe tener un identificador válido.
+     *
+     * **Gestión de Excepciones:**
+     * - Si ocurre un error, se captura y se registra mediante el logger.
+     *
+     * @param compra Objeto `CompraLimpieza` con los datos actualizados (no puede ser nulo).
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
      */
-    public boolean actualizarCompra(CompraComida compra) {
+    public boolean actualizarCompra(CompraLimpieza compra) {
         try {
             if (compra == null || compra.getIdUnico() <= 0) {
-                logger.error("El objeto CompraComida es nulo o tiene un identificador inválido.");
-                throw new IllegalArgumentException("El objeto CompraComida es nulo o tiene un identificador inválido.");
+                logger.error("El objeto CompraLimpieza es nulo o tiene un identificador inválido.");
+                throw new IllegalArgumentException("El objeto CompraLimpieza es nulo o tiene un identificador inválido.");
             }
 
-            boolean resultado = compraComidaDAO.actualizarCompra(compra);
+            boolean resultado = compraLimpiezaDAO.actualizarCompra(compra);
             if (resultado) {
-                logger.info("CompraComida actualizada exitosamente: {}", compra);
+                logger.info("CompraLimpieza actualizada exitosamente: {}", compra);
             }
             return resultado;
 
         } catch (IllegalArgumentException e) {
-            logger.error("Error de validación al actualizar CompraComida: {}", e.getMessage());
+            logger.error("Error de validación al actualizar CompraLimpieza: {}", e.getMessage());
             return false;
         } catch (Exception e) {
-            logger.error("Error al actualizar CompraComida.", e);
+            logger.error("Error al actualizar CompraLimpieza.", e);
             return false;
         }
     }
 
     /**
-     * Elimina un registro de CompraComida en la base de datos.
+     * Elimina un registro de CompraLimpieza en la base de datos.
+     *
+     * **Validaciones:**
+     * - El identificador único debe ser mayor que cero.
+     *
+     * **Gestión de Excepciones:**
+     * - Si ocurre un error, se captura y se registra mediante el logger.
      *
      * @param idUnico Identificador único del registro a eliminar.
-     * @return true si la operación fue exitosa, false en caso contrario.
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
      */
     public boolean eliminarCompra(int idUnico) {
         try {
@@ -144,17 +166,17 @@ public class ControladorCompraLimpieza {
                 throw new IllegalArgumentException("El identificador único debe ser mayor que cero.");
             }
 
-            boolean resultado = compraComidaDAO.eliminarCompra(idUnico);
+            boolean resultado = compraLimpiezaDAO.eliminarCompra(idUnico);
             if (resultado) {
-                logger.info("CompraComida con IdUnico={} eliminada exitosamente.", idUnico);
+                logger.info("CompraLimpieza con IdUnico={} eliminada exitosamente.", idUnico);
             }
             return resultado;
 
         } catch (IllegalArgumentException e) {
-            logger.error("Error de validación al eliminar CompraComida: {}", e.getMessage());
+            logger.error("Error de validación al eliminar CompraLimpieza: {}", e.getMessage());
             return false;
         } catch (Exception e) {
-            logger.error("Error al eliminar CompraComida con IdUnico={}.", idUnico, e);
+            logger.error("Error al eliminar CompraLimpieza con IdUnico={}.", idUnico, e);
             return false;
         }
     }
@@ -164,7 +186,7 @@ public class ControladorCompraLimpieza {
      */
     public void cerrar() {
         try {
-            compraComidaDAO.cerrar();
+            compraLimpiezaDAO.cerrar();
             logger.info("Recursos del DAO cerrados correctamente.");
         } catch (Exception e) {
             logger.error("Error al cerrar los recursos del DAO.", e);
@@ -173,18 +195,36 @@ public class ControladorCompraLimpieza {
 
     // Métodos privados de validación
 
+    /**
+     * Valida el nombre del producto.
+     *
+     * @param nombreProducto Nombre del producto a validar.
+     * @throws IllegalArgumentException Si el nombre es nulo o vacío.
+     */
     private void validarNombreProducto(String nombreProducto) {
         if (nombreProducto == null || nombreProducto.isBlank()) {
             throw new IllegalArgumentException("El nombre del producto no puede ser nulo o vacío.");
         }
     }
 
+    /**
+     * Valida la descripción del producto.
+     *
+     * @param descripcion Descripción a validar.
+     * @throws IllegalArgumentException Si la descripción es nula o vacía.
+     */
     private void validarDescripcion(String descripcion) {
         if (descripcion == null || descripcion.isBlank()) {
             throw new IllegalArgumentException("La descripción no puede ser nula o vacía.");
         }
     }
 
+    /**
+     * Valida la cantidad del producto.
+     *
+     * @param cantidad Cantidad a validar.
+     * @throws IllegalArgumentException Si la cantidad no es mayor a 0.
+     */
     private void validarCantidad(int cantidad) {
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor que cero.");

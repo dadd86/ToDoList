@@ -2,7 +2,6 @@ package Util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,14 +22,14 @@ public class PruebaConexion {
     private static final Logger logger = LoggerFactory.getLogger(PruebaConexion.class);
 
     public static void main(String[] args) {
-        // Inicializar el SessionFactory
+        // Usar el SessionFactory creado en HibernateUtil
         SessionFactory sessionFactory = null;
+
         try {
             logger.info("Iniciando prueba de conexión con Hibernate...");
 
-            sessionFactory = new Configuration()
-                    .configure("hibernate.cfg.xml") // Archivo de configuración
-                    .buildSessionFactory();
+            // Obtener el SessionFactory desde HibernateUtil
+            sessionFactory = HibernateUtil.getSessionFactory();
 
             // Abrir una sesión
             try (Session session = sessionFactory.openSession()) {
@@ -42,7 +41,7 @@ public class PruebaConexion {
         } catch (Exception e) {
             logger.error("Error al inicializar el SessionFactory: {}", e.getMessage());
         } finally {
-            // Cerrar el SessionFactory
+            // Cerrar el SessionFactory si se creó correctamente
             if (sessionFactory != null) {
                 sessionFactory.close();
                 logger.info("SessionFactory cerrado correctamente.");
@@ -50,4 +49,3 @@ public class PruebaConexion {
         }
     }
 }
-

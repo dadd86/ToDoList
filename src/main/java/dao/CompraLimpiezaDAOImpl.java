@@ -1,6 +1,5 @@
 package dao;
 
-import dao.CompraLimpiezaDAO;
 import modelo.CompraLimpieza;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,19 +11,12 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
- * Implementación de la interfaz CompraLimpiezaDAO utilizando Hibernate.
- *
- * Maneja las operaciones CRUD de la entidad CompraLimpieza con el uso de sesiones Hibernate.
+ * Implementación de la interfaz `CompraLimpiezaDAO` utilizando Hibernate.
  *
  * **Responsabilidades:**
- * - Implementar las operaciones definidas en CompraLimpiezaDAO.
- * - Manejar transacciones de manera segura.
+ * - Implementar las operaciones CRUD definidas en la interfaz `CompraLimpiezaDAO`.
+ * - Utilizar Hibernate para interactuar con la base de datos.
  *
- * **Requisitos:**
- * - Configuración de Hibernate en el archivo `hibernate.cfg.xml`.
- * - La entidad `CompraLimpieza` debe estar correctamente mapeada con anotaciones JPA.
- *
- * @author [Tu Nombre]
  * @version 1.0
  * @since 2024
  */
@@ -34,23 +26,27 @@ public class CompraLimpiezaDAOImpl implements CompraLimpiezaDAO {
     private final SessionFactory sessionFactory;
 
     /**
-     * Constructor que inicializa el SessionFactory para manejar sesiones de Hibernate.
+     * Constructor que inicializa el `SessionFactory` para manejar sesiones de Hibernate.
      */
     public CompraLimpiezaDAOImpl() {
-        sessionFactory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(CompraLimpieza.class)
-                .buildSessionFactory();
+        this.sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(CompraLimpieza.class).buildSessionFactory();
+        logger.info("CompraLimpiezaDAOImpl inicializado.");
     }
 
+    /**
+     * Agrega un nuevo registro de CompraLimpieza a la base de datos.
+     *
+     * @param compra Objeto CompraLimpieza a agregar.
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
+     */
     @Override
-    public boolean agregarCompra(CompraLimpieza compraLimpieza) {
+    public boolean agregarCompra(CompraLimpieza compra) {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            session.save(compraLimpieza);
+            session.save(compra);
             transaction.commit();
-            logger.info("CompraLimpieza agregada exitosamente: {}", compraLimpieza);
+            logger.info("CompraLimpieza agregada exitosamente: {}", compra);
             return true;
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
@@ -59,6 +55,11 @@ public class CompraLimpiezaDAOImpl implements CompraLimpiezaDAO {
         }
     }
 
+    /**
+     * Obtiene todos los registros de CompraLimpieza desde la base de datos.
+     *
+     * @return Lista de objetos CompraLimpieza, o `null` si ocurre un error.
+     */
     @Override
     @SuppressWarnings("unchecked")
     public List<CompraLimpieza> obtenerTodasLasCompras() {
@@ -72,14 +73,20 @@ public class CompraLimpiezaDAOImpl implements CompraLimpiezaDAO {
         }
     }
 
+    /**
+     * Actualiza un registro existente de CompraLimpieza en la base de datos.
+     *
+     * @param compra Objeto CompraLimpieza con los datos actualizados.
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
+     */
     @Override
-    public boolean actualizarCompra(CompraLimpieza compraLimpieza) {
+    public boolean actualizarCompra(CompraLimpieza compra) {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            session.update(compraLimpieza);
+            session.update(compra);
             transaction.commit();
-            logger.info("CompraLimpieza actualizada exitosamente: {}", compraLimpieza);
+            logger.info("CompraLimpieza actualizada exitosamente: {}", compra);
             return true;
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
@@ -88,6 +95,12 @@ public class CompraLimpiezaDAOImpl implements CompraLimpiezaDAO {
         }
     }
 
+    /**
+     * Elimina un registro de CompraLimpieza en la base de datos.
+     *
+     * @param idUnico Identificador único del registro a eliminar.
+     * @return `true` si la operación fue exitosa, `false` en caso contrario.
+     */
     @Override
     public boolean eliminarCompra(int idUnico) {
         Transaction transaction = null;
@@ -100,7 +113,7 @@ public class CompraLimpiezaDAOImpl implements CompraLimpiezaDAO {
                 logger.info("CompraLimpieza con IdUnico={} eliminada exitosamente.", idUnico);
                 return true;
             } else {
-                logger.warn("No se encontró CompraLimpieza con IdUnico={}.", idUnico);
+                logger.error("CompraLimpieza con IdUnico={} no encontrada.", idUnico);
                 return false;
             }
         } catch (Exception e) {
@@ -110,6 +123,27 @@ public class CompraLimpiezaDAOImpl implements CompraLimpiezaDAO {
         }
     }
 
+    /**
+     * Obtiene el último número único de foto registrado en la base de datos.
+     *
+     * @return El último número único de foto, o `0` si no existen registros.
+     */
+    @Override
+    public int obtenerUltimoNumeroFoto() {
+        int ultimoNumero = 0;
+        try (Session session = sessionFactory.openSession()) {
+            Integer maxNumero = (Integer) session.createQuery("SELECT MAX(c.numeroUnicoFoto) FROM CompraLimpieza c").uniqueResult();
+            ultimoNumero = maxNumero != null ? maxNumero : 0;
+            logger.info("Último número único de foto obtenido: {}", ultimoNumero);
+        } catch (Exception e) {
+            logger.error("Error al obtener el último número único de foto: {}", e.getMessage());
+        }
+        return ultimoNumero;
+    }
+
+    /**
+     * Cierra el `SessionFactory` para liberar recursos y evitar fugas de memoria.
+     */
     @Override
     public void cerrar() {
         if (sessionFactory != null) {
