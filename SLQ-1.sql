@@ -7,6 +7,7 @@ CREATE TABLE CompraComida (
     NumeroUnicoFoto INT NULL, -- Número único si Foto es SI
     Cantidad INT NOT NULL,
     Realizado BOOLEAN NOT NULL DEFAULT FALSE, -- Indica si la compra fue realizada
+    SuperMercado VARCHAR(255) NOT NULL,
     CONSTRAINT chk_Foto_Comida CHECK (Foto = 0 OR NumeroUnicoFoto IS NOT NULL) -- Validación lógica
 );
 
@@ -19,6 +20,7 @@ CREATE TABLE CompraLimpieza (
     NumeroUnicoFoto INT NULL, -- Número único si Foto es SI
     Cantidad INT NOT NULL,
     Realizado BOOLEAN NOT NULL DEFAULT FALSE, -- Indica si la compra fue realizada
+    SuperMercado VARCHAR(255) NOT NULL,
     CONSTRAINT chk_Foto_Limpieza CHECK (Foto = 0 OR NumeroUnicoFoto IS NOT NULL) -- Validación lógica
 );
 
@@ -31,6 +33,7 @@ CREATE TABLE CompraVarios (
     NumeroUnicoFoto INT NULL, -- Número único si Foto es SI
     Cantidad INT NOT NULL,
     Realizado BOOLEAN NOT NULL DEFAULT FALSE, -- Indica si la compra fue realizada
+    SuperMercado VARCHAR(255) NOT NULL,
     CONSTRAINT chk_Foto_Varios CHECK (Foto = 0 OR NumeroUnicoFoto IS NOT NULL) -- Validación lógica
 );
 

@@ -36,24 +36,48 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             // Llamar a la clase de prueba para verificar la conexión a la base de datos
-            PruebaConexion.main(new String[]{}); // Cambio aquí: pasar arreglo vacío
+            // Realizar la conexión en un hilo separado para evitar bloquear la interfaz de usuario.
+            new Thread(() -> {
+                try {
+                    PruebaConexion.main(new String[]{}); // Llamada a la prueba de conexión
+                } catch (Exception e) {
+                    logger.error("Error al conectar a la base de datos: {}", e.getMessage());
+                    showErrorDialog("Error de conexión", "No se pudo conectar a la base de datos.");
+                }
+            }).start();
+
+
             double fixedWidth = 800.0;
             double fixedHeight =600.0;
             // Crear el SceneManager, pasando el primaryStage y la configuración de la ventana
             SceneManager sceneManager = new SceneManager(primaryStage, "/styles.css", fixedWidth, fixedHeight, false);
             // Cargar el archivo FXML para la vista principal
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/MenuPrincipal.fxml"));
+            // Validar que el archivo FXML exista antes de cargarlo
+            if (loader.getLocation() == null) {
+                throw new IOException("No se pudo encontrar el archivo FXML: /vistas/MenuPrincipal.fxml");
+            }
             Parent root = loader.load();
 
             // Configurar el controlador para poder acceder al SceneManager
             Object controlador = loader.getController();
             if (controlador instanceof SceneManagerAware) {
                 ((SceneManagerAware) controlador).setSceneManager(sceneManager);
+            } else {
+                logger.warn("El controlador no implementa SceneManagerAware.");
             }
 
 
             // Crear la escena y aplicarle la hoja de estilo
             Scene scene = new Scene(root, fixedWidth, fixedHeight);
+            // Verificar si el archivo CSS se puede cargar
+            try {
+                scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+            } catch (Exception e) {
+                logger.error("No se pudo cargar la hoja de estilo: /styles.css", e);
+                showErrorDialog("Error de carga", "No se pudo aplicar la hoja de estilo.");
+            }
+
             // Establecer la escena en el primaryStage y mostrar la ventana principal
             primaryStage.setScene(scene);
             primaryStage.setTitle("Menu Principal");

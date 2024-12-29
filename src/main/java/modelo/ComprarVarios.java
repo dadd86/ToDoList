@@ -6,8 +6,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Clase que representa la entidad "CompraVarios" en la base de datos.
- *
- * <p>Esta clase almacena información sobre los productos relacionados con compras variadas.</p>
+ * Esta clase almacena información sobre los productos relacionados con compras variadas.
  *
  * <p><strong>Características:</strong></p>
  * <ul>
@@ -65,6 +64,12 @@ public class ComprarVarios {
     private boolean realizado;
 
     /**
+     * Nombre del supermercado donde se realizó la compra.
+     */
+    @Column(name = "SuperMercado", nullable = false, length = 255)
+    private String supermercado;
+
+    /**
      * Constructor con parámetros para inicializar los atributos de la clase.
      * Realiza validaciones estrictas antes de asignar los valores a los campos.
      *
@@ -79,12 +84,14 @@ public class ComprarVarios {
      * @param numeroUnicoFoto Número único asociado a la foto del producto.
      * @param cantidad Cantidad de productos comprados.
      * @param realizado Indica si la compra ha sido realizada.
+     * @param supermercado Nombre del supermercado donde se realizó la compra.
      * @throws Exception Si ocurre un error al generar el número único para fotos.
      */
-    public ComprarVarios(String nombreProducto, String descripcion, boolean foto, Integer numeroUnicoFoto, int cantidad, boolean realizado) {
+    public ComprarVarios(String nombreProducto, String descripcion, boolean foto, Integer numeroUnicoFoto, int cantidad, boolean realizado, String supermercado) {
         validarNombreProducto(nombreProducto);
         validarDescripcion(descripcion);
         validarCantidad(cantidad);
+        validarSupermercado(supermercado);
 
         this.nombreProducto = nombreProducto;
         this.descripcion = descripcion;
@@ -104,7 +111,7 @@ public class ComprarVarios {
 
         this.cantidad = cantidad;
         this.realizado = realizado;
-
+        this.supermercado = supermercado;
         logger.info("CompraVarios creada exitosamente: {}", this);
     }
 
@@ -186,6 +193,15 @@ public class ComprarVarios {
         this.realizado = realizado;
     }
 
+    public String getSupermercado() {
+        return supermercado;
+    }
+
+    public void setSupermercado(String supermercado) {
+        validarSupermercado(supermercado);
+        this.supermercado = supermercado;
+    }
+
     @Override
     public String toString() {
         return "ComprarVarios{" +
@@ -196,6 +212,7 @@ public class ComprarVarios {
                 ", numeroUnicoFoto=" + numeroUnicoFoto +
                 ", cantidad=" + cantidad +
                 ", realizado=" + realizado +
+                ", supermercado='" + supermercado + '\'' +
                 '}';
     }
 
@@ -254,6 +271,19 @@ public class ComprarVarios {
         if (cantidad <= 0) {
             logger.error("La cantidad debe ser mayor que 0.");
             throw new IllegalArgumentException("La cantidad debe ser mayor que 0.");
+        }
+    }
+
+    /**
+     * Valida el nombre del supermercado.
+     *
+     * @param supermercado Nombre del supermercado a validar.
+     * @throws IllegalArgumentException Si el supermercado es nulo o vacío.
+     */
+    private void validarSupermercado(String supermercado) {
+        if (supermercado == null || supermercado.isBlank()) {
+            logger.error("El nombre del supermercado no puede ser vacío o nulo.");
+            throw new IllegalArgumentException("El nombre del supermercado no puede ser vacío o nulo.");
         }
     }
 }

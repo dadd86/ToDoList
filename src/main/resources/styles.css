@@ -140,3 +140,28 @@
     -fx-background-color: #c0c0c0; /* Gris más oscuro al pasar el mouse */
     -fx-cursor: hand;              /* Cambia el cursor */
 }
+/* Estilo CSS para personalizar el CheckBox */
+.check-box {
+    -fx-background-color: transparent;
+    -fx-border-color: #00bcd4;  /* Color del borde */
+    -fx-border-width: 2px;  /* Grosor del borde */
+    -fx-background-radius: 5px;  /* Radio de los bordes */
+    -fx-pref-width: 120px;  /* Ancho preferido */
+    -fx-pref-height: 40px;  /* Alto preferido */
+}
+
+.check-box .text {
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+    -fx-fill: white;
+}
+
+.check-box .mark {
+    -fx-background-color: #00bcd4;
+    -fx-shape: "M 0 4 L 2 6 L 8 0";  /* Forma del símbolo de verificación */
+}
+
+.check-box:selected {
+    -fx-background-color: #00bcd4;
+    -fx-text-fill: white;
+}

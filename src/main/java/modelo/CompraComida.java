@@ -80,6 +80,12 @@ public class CompraComida {
     @Column(name = "Realizado", nullable = false)
     private boolean realizado;
 
+    /**
+     * Nombre del supermercado donde se realizó la compra.
+     */
+    @Column(name = "SuperMercado", nullable = false, length = 255)
+    private String supermercado;
+
     // ========================
     // Constructores
     // ========================
@@ -96,16 +102,19 @@ public class CompraComida {
      * @param numeroUnicoFoto Número único de la foto (se asignará automáticamente si es nulo).
      * @param cantidad Cantidad del producto comprado (debe ser mayor a 0).
      * @param realizado Indica si la compra ya ha sido realizada.
+     * @param supermercado Nombre del supermercado donde se realizó la compra.
      * @throws IllegalArgumentException Si alguno de los valores no cumple con las restricciones.
      */
-    public CompraComida(String nombreProducto, String descripcion, boolean foto, Integer numeroUnicoFoto, int cantidad, boolean realizado) {
+    public CompraComida(String nombreProducto, String descripcion, boolean foto, Integer numeroUnicoFoto, int cantidad, boolean realizado, String supermercado) {
         validarNombreProducto(nombreProducto);
         validarDescripcion(descripcion);
         validarCantidad(cantidad);
+        validarSupermercado(supermercado);
 
         this.nombreProducto = nombreProducto;
         this.descripcion = descripcion;
         this.foto = foto;
+
 
         if (foto) {
             if (numeroUnicoFoto == null || numeroUnicoFoto <= 0) {
@@ -120,7 +129,7 @@ public class CompraComida {
 
         this.cantidad = cantidad;
         this.realizado = realizado;
-
+        this.supermercado = supermercado;
         logger.info("CompraComida creada exitosamente: {}", this);
     }
 
@@ -200,6 +209,15 @@ public class CompraComida {
         this.realizado = realizado;
     }
 
+    public String getSupermercado() {
+        return supermercado;
+    }
+
+    public void setSupermercado(String supermercado) {
+        validarSupermercado(supermercado);
+        this.supermercado = supermercado;
+    }
+
     @Override
     public String toString() {
         return "CompraComida{" +
@@ -210,6 +228,7 @@ public class CompraComida {
                 ", numeroUnicoFoto=" + numeroUnicoFoto +
                 ", cantidad=" + cantidad +
                 ", realizado=" + realizado +
+                ", supermercado='" + supermercado + '\'' +
                 '}';
     }
 
@@ -253,6 +272,18 @@ public class CompraComida {
         if (cantidad <= 0) {
             logger.error("La cantidad debe ser mayor que 0.");
             throw new IllegalArgumentException("La cantidad debe ser mayor que 0.");
+        }
+    }
+    /**
+     * Valida el nombre del supermercado.
+     *
+     * @param supermercado Nombre del supermercado a validar.
+     * @throws IllegalArgumentException Si el supermercado es nulo o vacío.
+     */
+    private void validarSupermercado(String supermercado) {
+        if (supermercado == null || supermercado.isBlank()) {
+            logger.error("El nombre del supermercado no puede ser vacío o nulo.");
+            throw new IllegalArgumentException("El nombre del supermercado no puede ser vacío o nulo.");
         }
     }
 }

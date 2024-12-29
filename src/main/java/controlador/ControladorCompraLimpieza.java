@@ -24,7 +24,7 @@ import java.util.List;
  *
  * **Requisitos:**
  * - Configuración adecuada de Hibernate y entidades mapeadas con anotaciones JPA.
- *
+ * @author Diego Diaz
  * @version 1.1
  * @since 2024
  */
@@ -56,14 +56,16 @@ public class ControladorCompraLimpieza {
      * @param foto Indica si el producto tiene una foto asociada.
      * @param cantidad Cantidad de productos comprados (debe ser mayor que 0).
      * @param realizado Indica si la compra ha sido realizada.
+     * @param supermercado Nombre del supermercado donde se realizó la compra.
      * @return `true` si la operación fue exitosa, `false` en caso contrario.
      */
-    public boolean agregarCompra(String nombreProducto, String descripcion, boolean foto, int cantidad, boolean realizado) {
+    public boolean agregarCompra(String nombreProducto, String descripcion, boolean foto, int cantidad, boolean realizado, String supermercado) {
         try {
             // Validaciones de entrada
             validarNombreProducto(nombreProducto);
             validarDescripcion(descripcion);
             validarCantidad(cantidad);
+            validarSupermercado(supermercado);
 
             // Generar el número único de foto si es necesario
             Integer numeroUnicoFoto = null;
@@ -73,7 +75,7 @@ public class ControladorCompraLimpieza {
             }
 
             // Crear el objeto de compra
-            CompraLimpieza compra = new CompraLimpieza(nombreProducto, descripcion, foto, numeroUnicoFoto, cantidad, realizado);
+            CompraLimpieza compra = new CompraLimpieza(nombreProducto, descripcion, foto, numeroUnicoFoto, cantidad, realizado, supermercado);
 
             // Llamar al DAO para agregar la compra
             boolean resultado = compraLimpiezaDAO.agregarCompra(compra);
@@ -228,6 +230,19 @@ public class ControladorCompraLimpieza {
     private void validarCantidad(int cantidad) {
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor que cero.");
+        }
+    }
+
+    /**
+     * Valida el nombre del supermercado.
+     *
+     * @param supermercado Nombre del supermercado a validar.
+     * @throws IllegalArgumentException Si el supermercado es nulo o vacío.
+     */
+    private void validarSupermercado(String supermercado) {
+        if (supermercado == null || supermercado.isBlank()) {
+            logger.error("El nombre del supermercado no puede ser vacío o nulo.");
+            throw new IllegalArgumentException("El nombre del supermercado no puede ser vacío o nulo.");
         }
     }
 }

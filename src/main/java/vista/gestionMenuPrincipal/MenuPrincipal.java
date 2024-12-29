@@ -80,7 +80,7 @@ public class MenuPrincipal {
     private void AgregarElementos() {
         try {
             // Cambiar la vista para agregar elementos a las tareas
-            sceneManager.cambiarVista("/vista/gestionMenuPrincipal/AgregarElementos.fxml", "Agregar Elementos");
+            sceneManager.cambiarVista("/vistas/AgregarElementos.fxml", "Agregar Elementos");
         } catch (SceneManagerException e) {
             logger.error("Error al cambiar la vista a Agregar Elementos.", e);
         }

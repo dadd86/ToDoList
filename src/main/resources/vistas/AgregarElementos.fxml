@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="vista.gestionAgregarElementos.AgregarElementos">
+    <!--
+        Este AnchorPane contiene la interfaz principal de la aplicación 'To Do List App',
+        en la cual se pueden agregar elementos a una tabla.
+    -->
+
+    <children>
+        <!-- VBox centrado dinámicamente dentro del AnchorPane-->
+        <VBox alignment="CENTER" spacing="20." styleClass="contenedor-principal"
+              AnchorPane.topAnchor="50.0" AnchorPane.bottomAnchor="50.0"
+              AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+            <children>
+                <!-- Títulos de la interfaz -->
+                <Label text="To do List App" styleClass="titulo-principal"/>
+                <Separator />
+
+                <!-- Tabla para agregar elementos -->
+                <TableView fx:id="AgregarElementos" prefWidth="100" prefHeight="200">
+                    <columns>
+                        <!-- Columna para mostrar los ID de Inscripción -->
+                        <TableColumn fx:id="NombreTabla" text="Nombre Tabla" prefWidth="100"/>
+                    </columns>
+                </TableView>
+
+                <!-- Contenedor para el formulario de agregar elementos -->
+                <HBox spacing="20" alignment="CENTER">
+                    <!-- Campos del formulario: ComboBox, TextFields y CheckBoxes -->
+                    <VBox spacing="5">
+                        <Label text="Tabla seleccionada: "/>
+                        <!-- ComboBox para seleccionar una tabla -->
+                        <ComboBox fx:id="comboBoxTablas" prefWidth="200" />
+                    </VBox>
+                    <VBox spacing="5">
+                        <Label text="Nombre Producto: "/>
+                        <!-- Campo de texto para ingresar el nombre del producto -->
+                        <TextField fx:id="NombreProducto" prefWidth="200"/>
+                    </VBox>
+                    <VBox spacing="5">
+                        <Label text="Descripción: "/>
+                        <!-- Campo de texto para ingresar la descripción -->
+                        <TextField fx:id="Descripcion" prefWidth="150"/>
+                    </VBox>
+                    <VBox spacing="5">
+                        <Label text="Foto"/>
+                        <!-- Checkbox para indicar si el producto tiene foto -->
+                        <CheckBox fx:id="Foto" text="Foto"/>
+                    </VBox>
+                    <VBox spacing="5">
+                        <Label text="Cantidad"/>
+                        <!-- Campo de texto para ingresar la cantidad -->
+                        <TextField fx:id="Cantidad" prefWidth="250"/>
+                    </VBox>
+                    <VBox spacing="5">
+                        <Label text="Realizada"/>
+                        <!-- Checkbox para indicar si la compra ha sido realizada -->
+                        <CheckBox fx:id="Realizada" text="Realizada"/>
+                    </VBox>
+                    <VBox spacing="5">
+                        <Label text="SuperMercado"/>
+                        <!-- Campo de texto para ingresar el nombre del supermercado -->
+                        <TextField fx:id="SuperMercado" prefWidth="280"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Botones para agregar el elemento o volver al menú principal -->
+                <Button fx:id="btnAgregarElemento" text="Agregar Elemento" styleClass="boton-principal" onAction="#AgregarElemento"/>
+                <Button fx:id="botonVolver" text="Volver al Menú Principal" styleClass="boton-principal" onAction="#volverAlMenu"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

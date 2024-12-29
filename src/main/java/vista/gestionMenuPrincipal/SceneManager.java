@@ -13,6 +13,8 @@ import excepciones.SceneManagerException;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
+import java.util.Optional;
 
 /**
  * Clase que gestiona las transiciones entre vistas de la aplicación JavaFX y personaliza la ventana.
@@ -93,7 +95,12 @@ public class SceneManager {
 
         try {
             // Cargar el archivo FXML
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            URL fxmlUrl = getClass().getResource(fxmlPath);
+            if (fxmlUrl == null) {
+                throw new SceneManagerException("No se pudo encontrar el archivo FXML en la ruta especificada: " + fxmlPath);
+            }
+
+            FXMLLoader loader = new FXMLLoader(fxmlUrl);
             Parent root = loader.load();
 
             this.controlador = loader.getController();
@@ -124,9 +131,7 @@ public class SceneManager {
             Scene scene = new Scene(anchorPane, fixedWidth, fixedHeight);
 
             // Aplicar la hoja de estilo centralizada (styles.css) si se proporciona
-            if (stylesheet != null && !stylesheet.trim().isEmpty()) {
-                scene.getStylesheets().add(getClass().getResource(stylesheet).toExternalForm());
-            }
+            //Optional.ofNullable(stylesheet).ifPresent(s -> scene.getStylesheets().add(getClass().getResource(s).toExternalForm()));
 
             // Aquí aplicamos la hoja de estilo CSS centralizada para toda la aplicación
             scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());

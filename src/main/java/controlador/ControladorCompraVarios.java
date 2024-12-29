@@ -36,7 +36,7 @@ import java.util.List;
  *     <li>Se manejan excepciones de forma centralizada para registrar los errores y mantener la estabilidad.</li>
  * </ul>
  *
- * @author [Tu Nombre]
+ * @author Diego Diaz
  * @version 1.0
  * @since 2024
  */
@@ -78,14 +78,16 @@ public class ControladorCompraVarios {
      * @param foto Indica si el producto tiene una foto asociada.
      * @param cantidad Cantidad de productos comprados (debe ser mayor que cero).
      * @param realizado Indica si la compra ha sido realizada.
+     * @param supermercado Nombre del supermercado donde se realizó la compra.
      * @return true si la operación fue exitosa, false en caso contrario.
      */
-    public boolean agregarCompra(String nombreProducto, String descripcion, boolean foto, int cantidad, boolean realizado) {
+    public boolean agregarCompra(String nombreProducto, String descripcion, boolean foto, int cantidad, boolean realizado, String supermercado) {
         try {
             // Validaciones de entrada
             validarNombreProducto(nombreProducto);
             validarDescripcion(descripcion);
             validarCantidad(cantidad);
+            validarSupermercado(supermercado);
 
             // Obtener el último número de foto si es necesario
             Integer numeroUnicoFoto = null;
@@ -95,7 +97,7 @@ public class ControladorCompraVarios {
             }
 
             // Crear instancia del modelo
-            ComprarVarios compra = new ComprarVarios(nombreProducto, descripcion, foto, numeroUnicoFoto, cantidad, realizado);
+            ComprarVarios compra = new ComprarVarios(nombreProducto, descripcion, foto, numeroUnicoFoto, cantidad, realizado, supermercado);
 
             // Llamar al DAO para guardar el registro
             boolean resultado = comprarVariosDAO.agregarCompra(compra);
@@ -236,21 +238,52 @@ public class ControladorCompraVarios {
 
     // Métodos privados de validación
 
+    /**
+     * Valida el nombre del producto.
+     *
+     * @param nombreProducto Nombre del producto a validar.
+     * @throws IllegalArgumentException Si el nombre es nulo o vacío.
+     */
     private void validarNombreProducto(String nombreProducto) {
         if (nombreProducto == null || nombreProducto.isBlank()) {
             throw new IllegalArgumentException("El nombre del producto no puede ser nulo o vacío.");
         }
     }
 
+    /**
+     * Valida la descripción del producto.
+     *
+     * @param descripcion Descripción a validar.
+     * @throws IllegalArgumentException Si la descripción es nula o vacía.
+     */
     private void validarDescripcion(String descripcion) {
         if (descripcion == null || descripcion.isBlank()) {
             throw new IllegalArgumentException("La descripción no puede ser nula o vacía.");
         }
     }
 
+    /**
+     * Valida la cantidad del producto.
+     *
+     * @param cantidad Cantidad a validar.
+     * @throws IllegalArgumentException Si la cantidad no es mayor a 0.
+     */
     private void validarCantidad(int cantidad) {
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor que cero.");
+        }
+    }
+
+    /**
+     * Valida el nombre del supermercado.
+     *
+     * @param supermercado Nombre del supermercado a validar.
+     * @throws IllegalArgumentException Si el supermercado es nulo o vacío.
+     */
+    private void validarSupermercado(String supermercado) {
+        if (supermercado == null || supermercado.isBlank()) {
+            logger.error("El nombre del supermercado no puede ser vacío o nulo.");
+            throw new IllegalArgumentException("El nombre del supermercado no puede ser vacío o nulo.");
         }
     }
 }
