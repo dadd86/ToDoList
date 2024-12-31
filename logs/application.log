@@ -1680,3 +1680,856 @@
 2024-12-29 12:56:56 [Thread-3] DEBUG o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/todolist?serverTimezone=UTC]
 2024-12-29 12:56:56 [Thread-3] DEBUG o.h.b.r.i.BootstrapServiceRegistryImpl - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
 2024-12-29 12:56:56 [Thread-3] INFO  Util.PruebaConexion - SessionFactory cerrado correctamente.
+2024-12-29 19:48:41 [Thread-3] INFO  Util.PruebaConexion - Iniciando prueba de conexión con Hibernate...
+2024-12-29 19:48:41 [Thread-3] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+2024-12-29 19:48:41 [Thread-3] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.boot.beanvalidation.BeanValidationIntegrator].
+2024-12-29 19:48:41 [Thread-3] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+2024-12-29 19:48:41 [Thread-3] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-29 19:48:41 [Thread-3] DEBUG org.hibernate.cfg.Environment - HHH000206: 'hibernate.properties' not found
+2024-12-29 19:48:41 [Thread-3] DEBUG o.h.b.j.i.s.LocalXmlResourceResolver - Checking public/system identifiers `-//Hibernate/Hibernate Configuration DTD//EN`/`http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd` as DTD references
+2024-12-29 19:48:41 [Thread-3] DEBUG o.h.b.c.internal.JaxbCfgProcessor - cfg.xml document did not define namespaces; wrapping in custom event reader to introduce namespace information
+2024-12-29 19:48:42 [JavaFX Application Thread] WARN  Main - El controlador no implementa SceneManagerAware.
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Ignoring CDI for resolving IdentifierGenerator instances as extended or delayed CDI support was enabled
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG org.hibernate.orm.idgen.factory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+2024-12-29 19:48:43 [Thread-3] DEBUG o.h.c.i.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2024-12-29 19:48:43 [Thread-3] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@377ccf03
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@377ccf03
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BasicTypeReference@377ccf03
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.BasicTypeReference@66bc3261
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.NumericBooleanConverter -> org.hibernate.type.BasicTypeReference@66bc3261
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.BasicTypeReference@3ac57d73
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.TrueFalseConverter -> org.hibernate.type.BasicTypeReference@3ac57d73
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.BasicTypeReference@7d89c904
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.YesNoConverter -> org.hibernate.type.BasicTypeReference@7d89c904
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.BasicTypeReference@2c5c1561
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.BasicTypeReference@2c5c1561
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.BasicTypeReference@2c5c1561
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BasicTypeReference@2b7415b1
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BasicTypeReference@2b7415b1
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BasicTypeReference@2b7415b1
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration binary_wrapper -> org.hibernate.type.BasicTypeReference@3acbcb49
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.BasicTypeReference@3acbcb49
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration image -> org.hibernate.type.BasicTypeReference@939e4fd
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BasicTypeReference@45820fa6
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BasicTypeReference@45820fa6
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.BasicTypeReference@4e50433a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob_wrapper -> org.hibernate.type.BasicTypeReference@2aa5583a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.BasicTypeReference@6c7d4f9f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.BasicTypeReference@6c7d4f9f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.BasicTypeReference@6c7d4f9f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.BasicTypeReference@39d79289
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration int -> org.hibernate.type.BasicTypeReference@39d79289
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.BasicTypeReference@39d79289
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.BasicTypeReference@75525f1a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.BasicTypeReference@75525f1a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.BasicTypeReference@75525f1a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.BasicTypeReference@7536bd02
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.BasicTypeReference@7536bd02
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.BasicTypeReference@7536bd02
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.BasicTypeReference@7331058c
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.BasicTypeReference@7331058c
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.BasicTypeReference@7331058c
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BasicTypeReference@767792b9
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BasicTypeReference@767792b9
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BasicTypeReference@113ab9e2
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BasicTypeReference@113ab9e2
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration character -> org.hibernate.type.BasicTypeReference@5124d86a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration char -> org.hibernate.type.BasicTypeReference@5124d86a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.BasicTypeReference@5124d86a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration character_nchar -> org.hibernate.type.BasicTypeReference@2ac2aaa7
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration string -> org.hibernate.type.BasicTypeReference@60ea071c
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.BasicTypeReference@60ea071c
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.BasicTypeReference@245b574a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.BasicTypeReference@53cb3c23
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.BasicTypeReference@53cb3c23
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.BasicTypeReference@53cb3c23
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.BasicTypeReference@6ce3336f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration text -> org.hibernate.type.BasicTypeReference@5c011b08
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.BasicTypeReference@221ee6c5
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.BasicTypeReference@283eec81
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.BasicTypeReference@283eec81
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.BasicTypeReference@5db3daa2
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.BasicTypeReference@5db3daa2
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.BasicTypeReference@9be4347
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob_char_array -> org.hibernate.type.BasicTypeReference@5c43a47b
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob_character_array -> org.hibernate.type.BasicTypeReference@3c60196
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.BasicTypeReference@40e3ad86
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob_character_array -> org.hibernate.type.BasicTypeReference@3bbc7aa6
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob_char_array -> org.hibernate.type.BasicTypeReference@7a1d71d6
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.BasicTypeReference@49e405b2
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.BasicTypeReference@49e405b2
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.BasicTypeReference@14361e95
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.BasicTypeReference@14361e95
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.BasicTypeReference@4c073fff
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.BasicTypeReference@4c073fff
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.BasicTypeReference@5d056468
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.BasicTypeReference@5d056468
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.BasicTypeReference@34a523ef
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.BasicTypeReference@34a523ef
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@10c34158
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@654e7c78
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.BasicTypeReference@139e729d
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.BasicTypeReference@139e729d
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTimeUtc -> org.hibernate.type.BasicTypeReference@eb9815a
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTimeWithTimezone -> org.hibernate.type.BasicTypeReference@47ac854
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@12c1d91f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.BasicTypeReference@72ab4b40
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.BasicTypeReference@72ab4b40
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@30daa71e
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@6230e139
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration date -> org.hibernate.type.BasicTypeReference@7e25c541
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.BasicTypeReference@7e25c541
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration time -> org.hibernate.type.BasicTypeReference@56fc708e
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.BasicTypeReference@56fc708e
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.BasicTypeReference@337bcf18
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.BasicTypeReference@337bcf18
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.BasicTypeReference@337bcf18
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.BasicTypeReference@56a7d967
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.BasicTypeReference@56a7d967
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.BasicTypeReference@56a7d967
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.BasicTypeReference@6f8013f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration calendar_time -> org.hibernate.type.BasicTypeReference@3335696e
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration instant -> org.hibernate.type.BasicTypeReference@5edb631f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.BasicTypeReference@5edb631f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration uuid -> org.hibernate.type.BasicTypeReference@365ff542
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.BasicTypeReference@365ff542
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration pg-uuid -> org.hibernate.type.BasicTypeReference@365ff542
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.BasicTypeReference@70e8fb4f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.BasicTypeReference@680e9225
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration class -> org.hibernate.type.BasicTypeReference@6dc8d7a0
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.BasicTypeReference@6dc8d7a0
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.BasicTypeReference@13f16fec
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration Currency -> org.hibernate.type.BasicTypeReference@13f16fec
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.BasicTypeReference@13f16fec
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.BasicTypeReference@ff2480d
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.BasicTypeReference@ff2480d
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.BasicTypeReference@242cfb84
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.io.Serializable -> org.hibernate.type.BasicTypeReference@242cfb84
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.BasicTypeReference@268ff495
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.BasicTypeReference@268ff495
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration ZoneOffset -> org.hibernate.type.BasicTypeReference@3e9961a7
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZoneOffset -> org.hibernate.type.BasicTypeReference@3e9961a7
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration url -> org.hibernate.type.BasicTypeReference@2336f459
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.BasicTypeReference@2336f459
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration vector -> org.hibernate.type.BasicTypeReference@6085db60
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration float_vector -> org.hibernate.type.BasicTypeReference@3977a0b9
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration double_vector -> org.hibernate.type.BasicTypeReference@4c167a69
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration byte_vector -> org.hibernate.type.BasicTypeReference@5816db8e
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.BasicTypeReference@16064537
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration object -> org.hibernate.type.JavaObjectType@471c981d
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.JavaObjectType@471c981d
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration null -> org.hibernate.type.NullType@56c6b268
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.BasicTypeReference@7f4f896
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.BasicTypeReference@7b924fa7
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.BasicTypeReference@172fecfc
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.BasicTypeReference@74994983
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.BasicTypeReference@54092fce
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_time -> org.hibernate.type.BasicTypeReference@3d8fbd9f
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.BasicTypeReference@55affede
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.BasicTypeReference@6b4470b9
+2024-12-29 19:48:44 [Thread-3] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-12-29 19:48:44 [Thread-3] DEBUG o.hibernate.orm.connections.pooling - Initializing Connection pool with 1 Connections
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - Database ->
+	   name : MySQL
+	version : 8.2.0
+	  major : 8
+	  minor : 2
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - Driver ->
+	   name : MySQL Connector/J
+	version : mysql-connector-j-8.0.33 (Revision: 7d6b0800528b6b25c68b52dc10d6c1c8429c100c)
+	  major : 8
+	  minor : 0
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - JDBC version : 4.2
+2024-12-29 19:48:45 [Thread-3] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-29 19:48:45 [Thread-3] DEBUG org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.2
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.e.j.e.s.IdentifierHelperBuilder - JDBC driver metadata reported database stores quoted identifiers in more than one case
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.e.j.e.s.IdentifierHelperBuilder - IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [LOWER]; that will likely lead to problems in schema update and validation if using quoted identifiers
+2024-12-29 19:48:45 [Thread-3] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/todolist?serverTimezone=UTC]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 8.2
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2d0bf09b) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@de5a3f1)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@42d6a8a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@209d80ff)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@52e0235f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@723ae8d9)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1d2cb52e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@517a440c)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2536fa7) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@270a2314)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5f77771e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5cae02d8)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@459960bd) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@337de999)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5756a76f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7b42c79f)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.sql.spi.DdlTypeRegistry - addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@75d0dcc2) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@293dc2c0)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.jdbc.spi.JdbcTypeRegistry - addDescriptor(NCharTypeDescriptor) replaced previous registration(CharTypeDescriptor)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.jdbc.spi.JdbcTypeRegistry - addDescriptor(NVarcharTypeDescriptor) replaced previous registration(VarcharTypeDescriptor)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.jdbc.spi.JdbcTypeRegistry - addDescriptor(LongNVarcharTypeDescriptor) replaced previous registration(LongVarcharTypeDescriptor)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.t.d.jdbc.spi.JdbcTypeRegistry - addDescriptor(NClobTypeDescriptor(DEFAULT)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration null -> org.hibernate.type.NullType@2148b45f
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Type registration key [null] overrode previous entry : `org.hibernate.type.NullType@56c6b268`
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.DurationType -> basicType@1(java.time.Duration,3015)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration Duration -> basicType@1(java.time.Duration,3015)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Duration -> basicType@1(java.time.Duration,3015)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.OffsetDateTimeType -> basicType@2(java.time.OffsetDateTime,3003)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTime -> basicType@2(java.time.OffsetDateTime,3003)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> basicType@2(java.time.OffsetDateTime,3003)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.ZonedDateTimeType -> basicType@3(java.time.ZonedDateTime,3003)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTime -> basicType@3(java.time.ZonedDateTime,3003)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> basicType@3(java.time.ZonedDateTime,3003)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration org.hibernate.type.OffsetTimeType -> basicType@4(java.time.OffsetTime,3007)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTime -> basicType@4(java.time.OffsetTime,3007)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetTime -> basicType@4(java.time.OffsetTime,3007)
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@62a51a6e] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@2d1c47cf]
+2024-12-29 19:48:45 [Thread-3] DEBUG o.h.boot.model.relational.Namespace - Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.EntityBinder - Binding entity from annotated class: modelo.CompraComida
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.EntityBinder - Import with entity name CompraComida
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.EntityBinder - Bind entity modelo.CompraComida on table CompraComida
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedDiscriminatorColumn(column='DTYPE')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='IdUnico')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [modelo.CompraComida] is safe
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : modelo.CompraComida
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property idUnico with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraComida:idUnico]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for idUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraComida.IdUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property idUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.BinderHelper - #makeIdGenerator(BasicValue([Column(IdUnico)]), idUnico, identity, , ...)
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Cantidad')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property cantidad with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraComida:cantidad]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraComida.Cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Descripcion')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property descripcion with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraComida:descripcion]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraComida.Descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Foto')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property foto with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraComida:foto]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for foto
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraComida.Foto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property foto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='NombreProducto')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property nombreProducto with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraComida:nombreProducto]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for nombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraComida.NombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property nombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='NumeroUnicoFoto')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property numeroUnicoFoto with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraComida:numeroUnicoFoto]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for numeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraComida.NumeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property numeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Realizado')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property realizado with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraComida:realizado]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraComida.Realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='SuperMercado')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property supermercado with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraComida:supermercado]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for supermercado
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraComida.SuperMercado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property supermercado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.r.c.i.ClassLoaderServiceImpl - HHH000194: Package not found or no package-info.java: modelo
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.EntityBinder - Binding entity from annotated class: modelo.ComprarVarios
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.EntityBinder - Import with entity name ComprarVarios
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.EntityBinder - Bind entity modelo.ComprarVarios on table CompraVarios
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedDiscriminatorColumn(column='DTYPE')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='IdUnico')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [modelo.ComprarVarios] is safe
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : modelo.ComprarVarios
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property idUnico with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.ComprarVarios:idUnico]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for idUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraVarios.IdUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property idUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.BinderHelper - #makeIdGenerator(BasicValue([Column(IdUnico)]), idUnico, identity, , ...)
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Cantidad')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property cantidad with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.ComprarVarios:cantidad]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraVarios.Cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Descripcion')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property descripcion with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.ComprarVarios:descripcion]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraVarios.Descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Foto')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property foto with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.ComprarVarios:foto]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for foto
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraVarios.Foto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property foto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='NombreProducto')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property nombreProducto with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.ComprarVarios:nombreProducto]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for nombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraVarios.NombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property nombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='NumeroUnicoFoto')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property numeroUnicoFoto with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.ComprarVarios:numeroUnicoFoto]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for numeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraVarios.NumeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property numeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Realizado')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property realizado with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.ComprarVarios:realizado]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraVarios.Realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='SuperMercado')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property supermercado with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.ComprarVarios:supermercado]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for supermercado
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraVarios.SuperMercado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property supermercado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.r.c.i.ClassLoaderServiceImpl - HHH000194: Package not found or no package-info.java: modelo
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.EntityBinder - Binding entity from annotated class: modelo.CompraLimpieza
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.EntityBinder - Import with entity name CompraLimpieza
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.EntityBinder - Bind entity modelo.CompraLimpieza on table CompraLimpieza
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedDiscriminatorColumn(column='DTYPE')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='IdUnico')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [modelo.CompraLimpieza] is safe
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : modelo.CompraLimpieza
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property idUnico with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraLimpieza:idUnico]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for idUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraLimpieza.IdUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property idUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.boot.model.internal.BinderHelper - #makeIdGenerator(BasicValue([Column(IdUnico)]), idUnico, identity, , ...)
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Cantidad')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property cantidad with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraLimpieza:cantidad]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraLimpieza.Cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Descripcion')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property descripcion with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraLimpieza:descripcion]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraLimpieza.Descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Foto')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property foto with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraLimpieza:foto]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for foto
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraLimpieza.Foto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property foto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='NombreProducto')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property nombreProducto with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraLimpieza:nombreProducto]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for nombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraLimpieza.NombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property nombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='NumeroUnicoFoto')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property numeroUnicoFoto with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraLimpieza:numeroUnicoFoto]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for numeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraLimpieza.NumeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property numeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='Realizado')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property realizado with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraLimpieza:realizado]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraLimpieza.Realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.AnnotatedColumn - Binding column: AnnotatedColumn(column='SuperMercado')
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - MetadataSourceProcessor property supermercado with lazy=false
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.i.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [modelo.CompraLimpieza:supermercado]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - building BasicValue for supermercado
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.BasicValue - Skipping column re-registration: CompraLimpieza.SuperMercado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.model.internal.PropertyBinder - Building property supermercado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.r.c.i.ClassLoaderServiceImpl - HHH000194: Package not found or no package-info.java: modelo
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for idUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for foto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for nombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for numeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for supermercado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for idUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for foto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for nombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for numeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for supermercado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for idUnico
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for cantidad
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for descripcion
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for foto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for nombreProducto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for numeroUnicoFoto
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for realizado
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.b.m.internal.BasicValueBinder - Starting `BasicValueBinder#fillSimpleValue` for supermercado
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [idunico] to be non-null as it is part of the primary key for table [compracomida]
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [idunico] to be non-null as it is part of the primary key for table [compravarios]
+2024-12-29 19:48:46 [Thread-3] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [idunico] to be non-null as it is part of the primary key for table [compralimpieza]
+2024-12-29 19:48:46 [Thread-3] DEBUG o.h.internal.SessionFactoryImpl - Building session factory
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.s.i.SessionFactoryServiceRegistryImpl - EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.internal.SessionFactoryImpl - Instantiating SessionFactory with settings: {hibernate.format_sql=true, dialect=org.hibernate.dialect.MySQLDialect, java.specification.version=21, javafx.runtime.version=21.0.5+1, sun.cpu.isalist=amd64, sun.jnu.encoding=UTF-8, hibernate.dialect=org.hibernate.dialect.MySQLDialect, java.class.path=C:\Users\Admin\OneDrive\cursos\Programas\Java\ToDoList\ToDoList\target\classes;C:\Users\Admin\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\Admin\.m2\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar;C:\Users\Admin\.m2\repository\org\hibernate\orm\hibernate-core\6.6.2.Final\hibernate-core-6.6.2.Final.jar;C:\Users\Admin\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\Admin\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Admin\.m2\repository\org\jboss\logging\jboss-logging\3.5.0.Final\jboss-logging-3.5.0.Final.jar;C:\Users\Admin\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\Admin\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\Admin\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\Admin\.m2\repository\net\bytebuddy\byte-buddy\1.14.18\byte-buddy-1.14.18.jar;C:\Users\Admin\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.0\jakarta.xml.bind-api-4.0.0.jar;C:\Users\Admin\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.0\jakarta.activation-api-2.1.0.jar;C:\Users\Admin\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.2\jaxb-runtime-4.0.2.jar;C:\Users\Admin\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.2\jaxb-core-4.0.2.jar;C:\Users\Admin\.m2\repository\org\eclipse\angus\angus-activation\2.0.0\angus-activation-2.0.0.jar;C:\Users\Admin\.m2\repository\org\glassfish\jaxb\txw2\4.0.2\txw2-4.0.2.jar;C:\Users\Admin\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.1\istack-commons-runtime-4.1.1.jar;C:\Users\Admin\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Admin\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-swing\21.0.5\javafx-swing-21.0.5.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-swing\21.0.5\javafx-swing-21.0.5-win.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-fxml\23\javafx-fxml-23.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-fxml\23\javafx-fxml-23-win.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-graphics\21.0.5\javafx-graphics-21.0.5.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-graphics\21.0.5\javafx-graphics-21.0.5-win.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-base\21.0.5\javafx-base-21.0.5.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-base\21.0.5\javafx-base-21.0.5-win.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-controls\21.0.5\javafx-controls-21.0.5.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-controls\21.0.5\javafx-controls-21.0.5-win.jar;C:\Users\Admin\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\Admin\.m2\repository\ch\qos\logback\logback-classic\1.5.12\logback-classic-1.5.12.jar;C:\Users\Admin\.m2\repository\ch\qos\logback\logback-core\1.5.12\logback-core-1.5.12.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\lib\idea_rt.jar, java.vm.vendor=Oracle Corporation, sun.arch.data.model=64, user.variant=, java.vendor.url=https://java.oracle.com/, user.timezone=Europe/Berlin, java.vm.specification.version=21, os.name=Windows 10, javafx.version=21.0.5, current_session_context_class=thread, sun.java.launcher=SUN_STANDARD, user.country=ES, sun.boot.library.path=C:\jdk-21.0.2\bin, sun.java.command=Main, jdk.debug=release, sun.cpu.endian=little, user.home=C:\Users\Admin, user.language=es, sun.stderr.encoding=UTF-8, java.specification.vendor=Oracle Corporation, jdk.module.path=C:\Program Files\Java\javafx-sdk-21.0.5\lib, java.version.date=2024-01-16, java.home=C:\jdk-21.0.2, file.separator=\, java.vm.compressedOopsMode=Zero based, sun.stdout.encoding=UTF-8, line.separator=
+, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, intellij.debug.agent=true, hibernate.hbm2ddl.auto=validate, user.script=, connection.password=Admin, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.runtime.version=21.0.2+13-58, user.name=Admin, stdout.encoding=UTF-8, path.separator=;, kotlinx.coroutines.debug.enable.creation.stack.trace=false, hibernate.connection.username=****, os.version=10.0, java.runtime.name=OpenJDK Runtime Environment, hibernate.connection.url=jdbc:mysql://localhost:3306/todolist?serverTimezone=UTC, file.encoding=UTF-8, format_sql=true, java.vm.name=OpenJDK 64-Bit Server VM, hibernate.show_sql=true, hibernate.current_session_context_class=thread, show_sql=true, hibernate.connection.driver_class=com.mysql.cj.jdbc.Driver, java.vendor.url.bug=https://bugreport.java.com/bugreport/, java.io.tmpdir=C:\Users\Admin\AppData\Local\Temp\, java.version=21.0.2, jboss.modules.system.pkgs=com.intellij.rt, user.dir=C:\Users\Admin\OneDrive\cursos\Programas\Java\ToDoList\ToDoList, os.arch=amd64, connection.username=root, java.vm.specification.name=Java Virtual Machine Specification, hibernate.connection.password=****, sun.os.patch.level=, connection.driver_class=com.mysql.cj.jdbc.Driver, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.cfgxml.spi.LoadedConfig@718939a4, native.encoding=UTF-8, java.library.path=C:\jdk-21.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Python312\Scripts\;C:\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\MySQL\MySQL Server 8.2\bin;C:\app\Admin\product\21c\dbhomeXE\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\TDM-GCC-64\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git LFS;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files\mosquitto;C:\Workspace\apache-maven-3.9.9\bin;C:\Users\Admin\AppData\Local\Programs\Python\Python313;C:\Users\Admin\AppData\Local\Programs\Python\Python313\Scripts;C:\Program Files\nodejs\;C:\Program Files\OpenSSL-Win64\bin;C:\Users\Admin\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Admin\AppData\Local\Programs\Python\Python313\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code\bin;C:\kotlinc\bin;C:\jdk-21.0.2\bin;C:\Users\Admin\AppData\Local\GitHubDesktop\bin;C:\Users\Admin\AppData\Local\Programs\oh-my-posh\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\bin;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.2.3\bin;;C:\Users\Admin\.dotnet\tools;C:\Program Files\mosquitto;C:\Program Files\Python313;C:\Users\Admin\AppData\Roaming\npm;C:\Program Files\OpenSSL-Win64\bin;;., stderr.encoding=UTF-8, java.vendor=Oracle Corporation, java.vm.info=mixed mode, sharing, java.vm.version=21.0.2+13-58, sun.io.unicode.encoding=UnicodeLittle, connection.url=jdbc:mysql://localhost:3306/todolist?serverTimezone=UTC, debugger.agent.enable.coroutines=true, java.class.version=65.0}
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.internal.SessionFactoryImpl - Session factory constructed with filter configurations : {}
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(max)] under max; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(min)] under min; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sum)] under sum; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(avg)] under avg; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CountFunction@3a47c7d2] under count; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.EveryAnyEmulation@7ec643b9] under every; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.EveryAnyEmulation@550732d6] under any; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(floor)] under floor; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ceiling)] under ceiling; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(mod)] under mod; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(abs)] under abs; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sign)] under sign; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sqrt)] under sqrt; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ln)] under ln; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(exp)] under exp; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(power)] under power; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(round)] under round; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sin)] under sin; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(cos)] under cos; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(tan)] under tan; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(asin)] under asin; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(acos)] under acos; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(atan)] under atan; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(atan2)] under atan2; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@6a2506b4] under sinh; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@3146e01c] under cosh; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@5527fdc] under tanh; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@228b1de5] under pi; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@6059bfa6] under log; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(coalesce)] under coalesce; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(nullif)] under nullif; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(left)] under left; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(right)] under right; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(replace)] under replace; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(concat)] under concat; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lower)] under lower; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(upper)] under upper; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(substring)] under substring; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(locate)] under locate; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(character_length)] under character_length; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : length -> character_length
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.LocatePositionEmulation@f91c7e5] under position; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.InsertSubstringOverlayEmulation@3846d2b] under overlay; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TrimFunction@7e04aa85] under trim; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CastFunction@1e8551bc] under cast; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@1f3fb866] under collate; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.ExtractFunction@6c1acbf5] under extract; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(least)] under least; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(greatest)] under greatest; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CoalesceIfnullEmulation@870cca9] under ifnull; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lpad)] under lpad; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(rpad)] under rpad; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.LpadRpadPadEmulation@45df4] under pad; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CastStrEmulation@4565e8d9] under str; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.FormatFunction@57a9e61f] under format; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TimestampaddFunction@2494d5a9] under timestampadd; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TimestampdiffFunction@311f383e] under timestampdiff; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : dateadd -> timestampadd
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : datediff -> timestampdiff
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@6d1d6467] under current_date; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@b88372b] under current_time; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@79900e60] under current_timestamp; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : current date -> current_date
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : current time -> current_time
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : current timestamp -> current_timestamp
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@7d45d04] under local_date; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@16c2fc5] under local_time; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@4b9771ac] under local_datetime; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@320d85b0] under offset_datetime; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : local date -> local_date
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : local time -> local_time
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : local datetime -> local_datetime
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : offset datetime -> offset_datetime
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@1714d288] under instant; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : current_instant -> instant
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.SqlFunction@6843ec89] under sql; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(soundex)] under soundex; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(radians)] under radians; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(degrees)] under degrees; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(cot)] under cot; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(log)] under log; prior registration was org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@6059bfa6
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(log2)] under log2; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(log10)] under log10; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ltrim)] under ltrim; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(rtrim)] under rtrim; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(octet_length)] under octet_length; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(reverse)] under reverse; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(space)] under space; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(repeat)] under repeat; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.MultipatternSqmFunctionDescriptor@7162f1ab] under lpad; prior registration was NamedSqmFunctionTemplate(lpad)
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.MultipatternSqmFunctionDescriptor@15320464] under rpad; prior registration was NamedSqmFunctionTemplate(rpad)
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(md5)] under md5; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(day)] under day; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(month)] under month; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(year)] under year; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(hour)] under hour; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(minute)] under minute; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(second)] under second; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(microsecond)] under microsecond; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(dayofweek)] under dayofweek; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(dayofmonth)] under dayofmonth; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : day -> dayofmonth
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(dayofyear)] under dayofyear; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(week)] under week; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(quarter)] under quarter; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(monthname)] under monthname; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(dayname)] under dayname; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(last_day)] under last_day; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(date)] under date; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(timestamp)] under timestamp; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(time)] under time; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(utc_date)] under utc_date; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(utc_time)] under utc_time; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(utc_timestamp)] under utc_timestamp; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(rand)] under rand; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(crc32)] under crc32; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sha1)] under sha1; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sha2)] under sha2; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sha)] under sha; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bit_length)] under bit_length; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(octet_length)] under octet_length; prior registration was NamedSqmFunctionTemplate(octet_length)
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ascii)] under ascii; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(instr)] under instr; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(substr)] under substr; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@408f672f] under position; prior registration was org.hibernate.dialect.function.LocatePositionEmulation@f91c7e5
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(curtime)] under curtime; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(curdate)] under curdate; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(now)] under now; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TruncFunction@7518fdf] under trunc; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : truncate -> trunc
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(insert)] under insert; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@21f47748] under bitand; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@bdea736] under bitor; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@58f3436c] under bitxor; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@535700da] under bitnot; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bit_and)] under bit_and; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bit_or)] under bit_or; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(stddev)] under stddev; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(stddev_pop)] under stddev_pop; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(stddev_samp)] under stddev_samp; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(variance)] under variance; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(var_pop)] under var_pop; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(var_samp)] under var_samp; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(datediff)] under datediff; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(adddate)] under adddate; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(subdate)] under subdate; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(addtime)] under addtime; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(subtime)] under subtime; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.FormatFunction@511b73cf] under format; prior registration was org.hibernate.dialect.function.FormatFunction@57a9e61f
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(makedate)] under makedate; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(maketime)] under maketime; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtime)] under localtime; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtimestamp)] under localtimestamp; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtime)] under local_time; prior registration was org.hibernate.dialect.function.CurrentFunction@16c2fc5
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtimestamp)] under local_datetime; prior registration was org.hibernate.dialect.function.CurrentFunction@4b9771ac
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtime)] under localtime; prior registration was NamedSqmFunctionTemplate(localtime)
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@2f0289cd] under pi; prior registration was org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@228b1de5
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@6da85762] under chr; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registering alternate key : char -> chr
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@612cbdd] under sysdate; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(row_number)] under row_number; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lag)] under lag; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lead)] under lead; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(first_value)] under first_value; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(last_value)] under last_value; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(nth_value)] under nth_value; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.HypotheticalSetWindowEmulation@1653d6f7] under rank; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.HypotheticalSetWindowEmulation@736caad4] under dense_rank; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.HypotheticalSetWindowEmulation@390b5e8b] under percent_rank; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.HypotheticalSetWindowEmulation@36a60495] under cume_dist; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.q.s.function.SqmFunctionRegistry - Registered SqmFunctionTemplate [org.hibernate.dialect.function.ListaggGroupConcatEmulation@4d7e7418] under listagg; prior registration was null
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - abs(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double acos(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - adddate(DATE datetime, INTEGER days)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - addtime(TIME datetime, TIME time)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Boolean any(BOOLEAN arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer ascii(STRING arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double asin(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double atan(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double atan2(NUMERIC arg0, NUMERIC arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - avg(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - bit_and(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer bit_length(STRING_OR_CLOB arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - bit_or(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - bitand(arg0, arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - bitnot(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - bitor(arg0, arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - bitxor(arg0, arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - cast(arg as Type)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - ceiling(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Character char(INTEGER arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer character_length(STRING_OR_CLOB arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Character chr(INTEGER arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - coalesce(arg0[, arg1[, ...]])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String collate(STRING string as COLLATION collation)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String concat(STRING string0[, STRING string1[, ...]])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double cos(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double cosh(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double cot(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Long count([distinct ]{arg|*})
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer crc32(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double cume_dist([arg0[, ...]])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Date curdate()
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Date current date
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Time current time
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Timestamp current timestamp
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Date current_date
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Instant current_instant
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Time current_time
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Timestamp current_timestamp
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Time curtime()
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Date date(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - dateadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer datediff(DATE end, DATE start)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer day(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String dayname(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer dayofmonth(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer dayofweek(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer dayofyear(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double degrees(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Long dense_rank([arg0[, ...]])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Boolean every(BOOLEAN arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double exp(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - extract(TEMPORAL_UNIT field from TEMPORAL arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - first_valueANY value
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - floor(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String format(TEMPORAL datetime as STRING pattern)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - greatest(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer hour(TIME arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - ifnull(arg0, arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String insert(STRING string, INTEGER start, INTEGER length, STRING replacement)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Instant instant
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer instr(STRING string, STRING pattern[, INTEGER start[, INTEGER occurrence]])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - lagANY value[, INTEGER offset[, ANY default]]
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Date last_day(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - last_valueANY value
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - leadANY value[, INTEGER offset[, ANY default]]
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - least(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String left(STRING string, INTEGER length)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer length(STRING_OR_CLOB arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String listagg(STRING arg0, STRING arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double ln(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - LocalDate local date
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - LocalDateTime local datetime
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - LocalTime local time
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - LocalDate local_date
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - LocalDateTime local_datetime
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - LocalTime local_time
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Timestamp localtime
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Timestamp localtimestamp
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer locate(STRING pattern, STRING string[, INTEGER start])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double log(NUMERIC arg0[, NUMERIC arg1])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double log10(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double log2(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String lower(STRING string)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String lpad(string, length[, padding])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String ltrim(STRING string[, STRING characters])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Date makedate(INTEGER year, INTEGER dayofyear)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Time maketime(INTEGER hour, INTEGER min, INTEGER sec)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - max(COMPARABLE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String md5(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer microsecond(TIME arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - min(COMPARABLE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer minute(TIME arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer mod(INTEGER arg0, INTEGER arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer month(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String monthname(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Timestamp now()
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - nth_valueANY value, INTEGER nth
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - nullif(arg0, arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer octet_length(STRING_OR_CLOB arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - OffsetDateTime offset datetime
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - OffsetDateTime offset_datetime
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String overlay(STRING string placing STRING replacement from INTEGER start[ for INTEGER length])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String pad(STRING string with INTEGER length {leading|trailing}[ STRING character])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double percent_rank([arg0[, ...]])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double pi
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer position(STRING pattern in STRING string)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double power(NUMERIC arg0, NUMERIC arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer quarter(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double radians(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double rand([INTEGER seed])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Long rank([arg0[, ...]])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String repeat(STRING string, INTEGER times)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String replace(STRING string, STRING pattern, STRING replacement)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String reverse(STRING arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String right(STRING string, INTEGER length)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - round(NUMERIC number[, INTEGER places])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Long row_number()
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String rpad(string, length[, padding])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String rtrim(STRING string[, STRING characters])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer second(TIME arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String sha(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String sha1(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String sha2(arg0, arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer sign(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double sin(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double sinh(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String soundex(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String space(INTEGER arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Object sql
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double sqrt(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double stddev(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double stddev_pop(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double stddev_samp(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String str(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - subdate(DATE datetime, INTEGER days)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String substr(STRING string, INTEGER start[, INTEGER length])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String substring(STRING string{ from|,} INTEGER start[{ for|,} INTEGER length])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - subtime(TIME datetime, TIME time)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - sum(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Timestamp sysdate()
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double tan(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double tanh(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String time(arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Timestamp timestamp(arg0[, arg1])
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - timestampadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Long|Double timestampdiff(TEMPORAL_UNIT field, TEMPORAL start, TEMPORAL end)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String trim([[{leading|trailing|both} ][STRING arg0 ]from] STRING arg1)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - trunc( ... )
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - truncate( ... )
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - String upper(STRING string)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Date utc_date
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Time utc_time
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Timestamp utc_timestamp
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double var_pop(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double var_samp(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Double variance(NUMERIC arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer week(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.HQL_FUNCTIONS - Integer year(DATE arg)
+2024-12-29 19:48:47 [Thread-3] DEBUG org.hibernate.orm.query.plan.cache - Starting QueryInterpretationCache(2048)
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.s.i.SessionFactoryServiceRegistryImpl - EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.e.i.EntityCopyObserverFactoryInitiator - Configured EntityCopyObserver strategy: disallow
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [modelo.ComprarVarios] is safe
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : modelo.ComprarVarios
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.b.i.b.BytecodeProviderImpl - HHH000513: Unable to create the ReflectionOptimizer for [modelo.ComprarVarios]: private accessor [cantidad]
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [modelo.CompraComida] is safe
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : modelo.CompraComida
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.b.i.b.BytecodeProviderImpl - HHH000513: Unable to create the ReflectionOptimizer for [modelo.CompraComida]: private accessor [cantidad]
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [modelo.CompraLimpieza] is safe
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : modelo.CompraLimpieza
+2024-12-29 19:48:47 [Thread-3] DEBUG o.h.b.i.b.BytecodeProviderImpl - HHH000513: Unable to create the ReflectionOptimizer for [modelo.CompraLimpieza]: private accessor [cantidad]
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.orm.model.mapping.creation - Starting post-init callbacks
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.orm.model.mapping.creation - Starting PostInitCallbackEntry : Entity(modelo.ComprarVarios) `staticFetchableList` generator
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.orm.model.mapping.creation - Starting PostInitCallbackEntry : Entity(modelo.CompraComida) `staticFetchableList` generator
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.orm.model.mapping.creation - Starting PostInitCallbackEntry : Entity(modelo.CompraLimpieza) `staticFetchableList` generator
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.sql.ast.create - Created new SQL alias : cv1_0
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.sql.ast.create - Registration of TableGroup [StandardTableGroup(modelo.ComprarVarios)] with identifierForTableGroup [modelo.ComprarVarios] for NavigablePath [modelo.ComprarVarios] 
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.results.graph.AST - DomainResult Graph:
+ \-EntityResultImpl [modelo.ComprarVarios]
+ |  +-BasicFetch [modelo.ComprarVarios.cantidad]
+ |  +-BasicFetch [modelo.ComprarVarios.descripcion]
+ |  +-BasicFetch [modelo.ComprarVarios.foto]
+ |  +-BasicFetch [modelo.ComprarVarios.nombreProducto]
+ |  +-BasicFetch [modelo.ComprarVarios.numeroUnicoFoto]
+ |  +-BasicFetch [modelo.ComprarVarios.realizado]
+ |  \-BasicFetch [modelo.ComprarVarios.supermercado]
+
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.sql.ast.tree - SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (cv1 : modelo.ComprarVarios) {
+          primaryTableReference : CompraVarios as cv1_0
+        }
+      }
+    }
+
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: modelo.ComprarVarios
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select IdUnico from CompraVarios where IdUnico=?
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert (0): insert into CompraVarios (Cantidad,Descripcion,Foto,NombreProducto,NumeroUnicoFoto,Realizado,SuperMercado) values (?,?,?,?,?,?,?)
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Update (0): update CompraVarios set Cantidad=?,Descripcion=?,Foto=?,NombreProducto=?,NumeroUnicoFoto=?,Realizado=?,SuperMercado=? where IdUnico=?
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete (0): delete from CompraVarios where IdUnico=?
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.sql.ast.create - Created new SQL alias : cc1_0
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.sql.ast.create - Registration of TableGroup [StandardTableGroup(modelo.CompraComida)] with identifierForTableGroup [modelo.CompraComida] for NavigablePath [modelo.CompraComida] 
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.results.graph.AST - DomainResult Graph:
+ \-EntityResultImpl [modelo.CompraComida]
+ |  +-BasicFetch [modelo.CompraComida.cantidad]
+ |  +-BasicFetch [modelo.CompraComida.descripcion]
+ |  +-BasicFetch [modelo.CompraComida.foto]
+ |  +-BasicFetch [modelo.CompraComida.nombreProducto]
+ |  +-BasicFetch [modelo.CompraComida.numeroUnicoFoto]
+ |  +-BasicFetch [modelo.CompraComida.realizado]
+ |  \-BasicFetch [modelo.CompraComida.supermercado]
+
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.sql.ast.tree - SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (cc1 : modelo.CompraComida) {
+          primaryTableReference : CompraComida as cc1_0
+        }
+      }
+    }
+
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: modelo.CompraComida
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select IdUnico from CompraComida where IdUnico=?
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert (0): insert into CompraComida (Cantidad,Descripcion,Foto,NombreProducto,NumeroUnicoFoto,Realizado,SuperMercado) values (?,?,?,?,?,?,?)
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Update (0): update CompraComida set Cantidad=?,Descripcion=?,Foto=?,NombreProducto=?,NumeroUnicoFoto=?,Realizado=?,SuperMercado=? where IdUnico=?
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete (0): delete from CompraComida where IdUnico=?
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.sql.ast.create - Created new SQL alias : cl1_0
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.sql.ast.create - Registration of TableGroup [StandardTableGroup(modelo.CompraLimpieza)] with identifierForTableGroup [modelo.CompraLimpieza] for NavigablePath [modelo.CompraLimpieza] 
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.results.graph.AST - DomainResult Graph:
+ \-EntityResultImpl [modelo.CompraLimpieza]
+ |  +-BasicFetch [modelo.CompraLimpieza.cantidad]
+ |  +-BasicFetch [modelo.CompraLimpieza.descripcion]
+ |  +-BasicFetch [modelo.CompraLimpieza.foto]
+ |  +-BasicFetch [modelo.CompraLimpieza.nombreProducto]
+ |  +-BasicFetch [modelo.CompraLimpieza.numeroUnicoFoto]
+ |  +-BasicFetch [modelo.CompraLimpieza.realizado]
+ |  \-BasicFetch [modelo.CompraLimpieza.supermercado]
+
+2024-12-29 19:48:48 [Thread-3] DEBUG org.hibernate.orm.sql.ast.tree - SQL AST Tree:
+    SelectStatement {
+      FromClause {
+        StandardTableGroup (cl1 : modelo.CompraLimpieza) {
+          primaryTableReference : CompraLimpieza as cl1_0
+        }
+      }
+    }
+
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: modelo.CompraLimpieza
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select IdUnico from CompraLimpieza where IdUnico=?
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert (0): insert into CompraLimpieza (Cantidad,Descripcion,Foto,NombreProducto,NumeroUnicoFoto,Realizado,SuperMercado) values (?,?,?,?,?,?,?)
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Update (0): update CompraLimpieza set Cantidad=?,Descripcion=?,Foto=?,NombreProducto=?,NumeroUnicoFoto=?,Realizado=?,SuperMercado=? where IdUnico=?
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete (0): delete from CompraLimpieza where IdUnico=?
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@62a51a6e] to SessionFactoryImplementor [org.hibernate.internal.SessionFactoryImpl@1a3b39fc]
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.q.named.NamedObjectRepository - Checking 0 named HQL queries
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.q.named.NamedObjectRepository - Checking 0 named SQL queries
+2024-12-29 19:48:48 [Thread-3] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@788887ba] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.internal.SessionFactoryRegistry - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@43c895cf
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.internal.SessionFactoryRegistry - Registering SessionFactory: cf26eb2e-7010-47aa-9c19-e57452525631 (<unnamed>)
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.internal.SessionFactoryRegistry - Not binding SessionFactory to JNDI, no JNDI name configured
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.internal.SessionFactoryImpl - Instantiated SessionFactory
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=false]
+2024-12-29 19:48:48 [Thread-3] INFO  Util.PruebaConexion - Conexión exitosa con la base de datos.
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.internal.SessionFactoryImpl - HHH000031: Closing
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.type.spi.TypeConfiguration$Scope - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@4653eb8b] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@1a3b39fc]
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.s.i.AbstractServiceRegistryImpl - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+2024-12-29 19:48:48 [Thread-3] DEBUG o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/todolist?serverTimezone=UTC]
+2024-12-29 19:48:48 [Thread-3] DEBUG o.h.b.r.i.BootstrapServiceRegistryImpl - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+2024-12-29 19:48:48 [Thread-3] INFO  Util.PruebaConexion - SessionFactory cerrado correctamente.

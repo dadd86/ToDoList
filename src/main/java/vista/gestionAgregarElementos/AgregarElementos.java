@@ -5,10 +5,7 @@ import controlador.ControladorCompraComida;
 import controlador.ControladorCompraLimpieza;
 import controlador.ControladorCompraVarios;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.slf4j.Logger;
@@ -208,5 +205,37 @@ public class AgregarElementos {
      */
     private boolean isCheckBoxSelected(CheckBox checkBox) {
         return checkBox.isSelected();  // Devuelve true si está marcado, false si no lo está
+    }
+    /**
+     * Maneja la acción del botón "Volver al Menú Principal".
+     */
+    @FXML
+    private void volverAlMenu() {
+        logger.info("Intentando volver al menú principal.");
+        if (sceneManager == null) {
+            logger.error("El SceneManager no está configurado.");
+            mostrarAlertaError("Error", "El gestor de escenas no está configurado. No se puede volver al menú principal.");
+            return;
+        }
+        try {
+            sceneManager.cambiarVista("/vistas/application.fxml", "Menú Principal", "/styles.css");
+            logger.info("Vista del menú principal abierta correctamente.");
+        } catch (Exception e) {
+            logger.error("Error al volver al menú principal.", e);
+            mostrarAlertaError("Error", "No se pudo volver al menú principal.");
+        }
+    }
+    /**
+     * Muestra una alerta de error genérica al usuario.
+     *
+     * @param header  Título de la alerta.
+     * @param content Detalle del error.
+     */
+    private void mostrarAlertaError(String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

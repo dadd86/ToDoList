@@ -1,6 +1,7 @@
 package vista.gestionMenuPrincipal;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,17 @@ public class MenuPrincipal {
      */
     public void setSceneManager(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
+    }
+    /**
+     * Verifica si el SceneManager está configurado correctamente.
+     *
+     * @throws IllegalStateException Si el SceneManager no está configurado.
+     */
+    private void validarSceneManager() {
+        if (sceneManager == null) {
+            logger.error("El SceneManager no está configurado. No se puede cambiar la vista.");
+            throw new IllegalStateException("El SceneManager no está configurado.");
+        }
     }
 
     /**
@@ -79,10 +91,45 @@ public class MenuPrincipal {
     @FXML
     private void AgregarElementos() {
         try {
+            validarSceneManager(); // Verificar que SceneManager está configurado correctamente
             // Cambiar la vista para agregar elementos a las tareas
             sceneManager.cambiarVista("/vistas/AgregarElementos.fxml", "Agregar Elementos");
-        } catch (SceneManagerException e) {
-            logger.error("Error al cambiar la vista a Agregar Elementos.", e);
+            logger.info("Ventana de Agregar Elementos abierta correctamente.");
+        } catch (Exception e) {
+            logger.error("Error inesperado al abrir la ventana de Gestión de Excursiones.", e);
+            mostrarAlertaError("Error", "Ocurrió un error inesperado.");
         }
+    }
+    /**
+     * Maneja la acción del botón "Volver al Menú Principal".
+     */
+    @FXML
+    private void VolverMenu() {
+        logger.info("Intentando volver al menú principal.");
+        if (sceneManager == null) {
+            logger.error("El SceneManager no está configurado.");
+            mostrarAlertaError("Error", "El gestor de escenas no está configurado. No se puede volver al menú principal.");
+            return;
+        }
+        try {
+            sceneManager.cambiarVista("/vistas/application.fxml", "Menú Principal", "/styles.css");
+            logger.info("Vista del menú principal abierta correctamente.");
+        } catch (Exception e) {
+            logger.error("Error al volver al menú principal.", e);
+            mostrarAlertaError("Error", "No se pudo volver al menú principal.");
+        }
+    }
+    /**
+     * Muestra una alerta de error genérica al usuario.
+     *
+     * @param header  Título de la alerta.
+     * @param content Detalle del error.
+     */
+    private void mostrarAlertaError(String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }
