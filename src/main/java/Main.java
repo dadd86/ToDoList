@@ -1,4 +1,4 @@
-import vista.gestionMenuPrincipal.*;
+import oneDrive.OneDriveConnection;
 import Util.PruebaConexion;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,97 +8,70 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import excepciones.*;
 
 import java.io.IOException;
 
+/**
+ * Clase principal para ejecutar la aplicación JavaFX y gestionar la integración con OneDrive.
+ */
 public class Main extends Application {
 
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
-    public interface SceneManagerAware {
-        void setSceneManager(SceneManager sceneManager);
-    }
-
-
     /**
      * Método principal que arranca la aplicación.
-     * <p>
-     * Este método inicializa la interfaz de usuario, configura el `SceneManager`
-     * y gestiona la conexión con Hibernate para verificar que el sistema esté
-     * correctamente configurado antes de continuar con el arranque de la aplicación.
-     * </p>
      *
      * @param primaryStage El escenario principal donde se cargará la interfaz.
-     * @throws Exception Si ocurre algún error durante el proceso de inicialización.
      */
     @Override
     public void start(Stage primaryStage) {
         try {
-            // Llamar a la clase de prueba para verificar la conexión a la base de datos
-            // Realizar la conexión en un hilo separado para evitar bloquear la interfaz de usuario.
+            // Verificar conexión a la base de datos en un hilo separado
             new Thread(() -> {
                 try {
-                    PruebaConexion.main(new String[]{}); // Llamada a la prueba de conexión
+                    PruebaConexion.main(new String[]{}); // Verificar conexión
                 } catch (Exception e) {
                     logger.error("Error al conectar a la base de datos: {}", e.getMessage());
                     showErrorDialog("Error de conexión", "No se pudo conectar a la base de datos.");
                 }
             }).start();
 
-
-            double fixedWidth = 800.0;
-            double fixedHeight =600.0;
-            // Crear el SceneManager, pasando el primaryStage y la configuración de la ventana
-            SceneManager sceneManager = new SceneManager(primaryStage, "/styles.css", fixedWidth, fixedHeight, false);
-            // Cargar el archivo FXML para la vista principal
+            // Configurar la ventana principal
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/MenuPrincipal.fxml"));
-            // Validar que el archivo FXML exista antes de cargarlo
-            if (loader.getLocation() == null) {
-                throw new IOException("No se pudo encontrar el archivo FXML: /vistas/MenuPrincipal.fxml");
-            }
             Parent root = loader.load();
 
-            // Configurar el controlador para poder acceder al SceneManager
-            Object controlador = loader.getController();
-            if (controlador instanceof SceneManagerAware) {
-                ((SceneManagerAware) controlador).setSceneManager(sceneManager);
-            } else {
-                logger.warn("El controlador no implementa SceneManagerAware.");
-            }
-
-
-            // Crear la escena y aplicarle la hoja de estilo
-            Scene scene = new Scene(root, fixedWidth, fixedHeight);
-            // Verificar si el archivo CSS se puede cargar
-            try {
-                scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
-            } catch (Exception e) {
-                logger.error("No se pudo cargar la hoja de estilo: /styles.css", e);
-                showErrorDialog("Error de carga", "No se pudo aplicar la hoja de estilo.");
-            }
-
-            // Establecer la escena en el primaryStage y mostrar la ventana principal
+            Scene scene = new Scene(root, 800, 600);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Menu Principal");
-            primaryStage.setResizable(true);
             primaryStage.show();
+
+            // Manejar la integración con OneDrive
+            manejarIntegracionOneDrive();
 
         } catch (IOException e) {
             logger.error("Error al cargar la vista: {}", e.getMessage());
             showErrorDialog("Error de carga", "Hubo un problema al cargar la vista.");
-        } catch (Exception e) {
-            logger.error("Error en la ejecución de la aplicación: {}", e.getMessage());
-            showErrorDialog("Error de inicio", "No se pudo iniciar la aplicación. Verifique la configuración.");
         }
     }
 
+    /**
+     * Maneja la integración con Microsoft OneDrive.
+     */
+    private void manejarIntegracionOneDrive() {
+        try {
+            OneDriveConnection oneDriveConnection = new OneDriveConnection();
+            String accessToken = oneDriveConnection.getAccessToken();
+            oneDriveConnection.uploadFileToOneDrive(accessToken, "example.txt");
+        } catch (Exception e) {
+            logger.error("Error en la integración con OneDrive: {}", e.getMessage());
+        }
+    }
 
     /**
-     * Muestra un cuadro de diálogo con un mensaje de error para el usuario.
+     * Muestra un cuadro de diálogo con un mensaje de error.
      *
      * @param title   Título del cuadro de diálogo.
-     * @param message Mensaje de error a mostrar al usuario.
+     * @param message Mensaje de error.
      */
     private void showErrorDialog(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -108,18 +81,7 @@ public class Main extends Application {
         alert.showAndWait();
     }
 
-    /**
-     * Método principal para ejecutar la aplicación.
-     * Este método es el punto de entrada de la aplicación JavaFX.
-     *
-     * @param args Argumentos de la línea de comandos.
-     */
     public static void main(String[] args) {
         launch(args);
     }
 }
-
-
-//            ESTA LINA ES PARA HACER LA PRUEBA DE CONEXION CON LA BASE DATOS
-//            // Llamar a la clase de prueba para verificar la conexión a la base de datos
-//            PruebaConexion.main(args);

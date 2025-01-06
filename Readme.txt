@@ -43,3 +43,39 @@ Paso 2: Obtén el código de autorización
 
 
 	Accede a este enlace y copia el código de autorización obtenido en la redirección.
+
+
+	1. Configurar Azure Active Directory (AAD)
+    Acceder a Azure Active Directory:
+
+    En el portal de Azure, busca "Azure Active Directory" en la barra de búsqueda (como se muestra en tu captura) y selecciona el servicio Microsoft Entra ID (Azure Active Directory).
+    Registrar una nueva aplicación:
+
+    En el panel de Azure AD, selecciona "Registros de aplicaciones".
+    Haz clic en "Nuevo registro".
+    Proporciona un nombre para la aplicación, por ejemplo, JavaApp-OneDrive.
+    Selecciona Cuentas en cualquier directorio organizativo y cuentas personales de Microsoft como tipo de cuenta.
+    Configura una URL de redirección para tu aplicación, por ejemplo:
+    Para desarrollo local: http://localhost:8080
+    Haz clic en Registrar.
+    Guardar los detalles de la aplicación registrada:
+
+    Una vez registrada, anota:
+    ID de la aplicación (cliente).
+    ID de directorio (inquilino).
+    Configurar un secreto de cliente:
+
+    En la página de la aplicación registrada, ve a Certificados y secretos.
+    Haz clic en Nuevo secreto de cliente.
+    Asigna un nombre al secreto y selecciona una duración (por ejemplo, 6 meses).
+    Copia el valor del secreto generado. No podrás verlo nuevamente.
+    Asignar permisos de API a Microsoft Graph:
+
+    En la misma aplicación, ve a Permisos de API.
+    Haz clic en Agregar un permiso.
+    Selecciona Microsoft Graph.
+    Elige Delegados y habilita los permisos necesarios para OneDrive:
+    Files.ReadWrite (para leer y escribir archivos en OneDrive).
+    offline_access (para tokens de actualización).
+    Haz clic en Agregar permisos.
+    Haz clic en Grant admin consent (Otorgar consentimiento de administrador).

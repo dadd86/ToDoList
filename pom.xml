@@ -3,32 +3,32 @@
   <modelVersion>4.0.0</modelVersion>
 
   <!-- Información básica del proyecto -->
-  <groupId>org.ToDoList</groupId>
-  <artifactId>ToDoList</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <groupId>org.ToDoList</groupId> <!-- Identificador único del grupo -->
+  <artifactId>ToDoList</artifactId> <!-- Identificador único del artefacto -->
+  <version>1.0-SNAPSHOT</version> <!-- Versión del proyecto -->
+  <packaging>jar</packaging> <!-- Tipo de empaquetado -->
 
-  <name>ToDoList</name>
-  <url>http://maven.apache.org</url>
+  <name>ToDoList</name> <!-- Nombre del proyecto -->
+  <url>http://maven.apache.org</url> <!-- URL del proyecto -->
 
   <!-- Propiedades del proyecto -->
   <properties>
     <!-- Ruta al SDK de JavaFX, importante para evitar problemas en diferentes sistemas operativos -->
+    <!-- Ruta al SDK de JavaFX -->
     <PATH_TO_FX>C:\Program Files\Java\javafx-sdk-21.0.5\lib</PATH_TO_FX>
-    <java.version>17</java.version>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>17</java.version> <!-- Versión de Java usada en el proyecto -->
+    <maven.compiler.source>${java.version}</maven.compiler.source> <!-- Versión de origen del compilador -->
+    <maven.compiler.target>${java.version}</maven.compiler.target> <!-- Versión de destino del compilador -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Codificación del proyecto -->
   </properties>
 
   <!-- Dependencias del proyecto -->
   <dependencies>
     <!-- MySQL Connector: Para la conexión con bases de datos MySQL -->
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.33</version> <!-- Usa la versión correcta de MySQL -->
-      <scope>runtime</scope>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.0.33</version>
     </dependency>
 
     <!-- JUnit 5: Para realizar pruebas unitarias -->
@@ -63,13 +63,11 @@
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-swing</artifactId>
       <version>21.0.5</version>
-      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
       <version>21.0.5</version>
-      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
@@ -88,15 +86,65 @@
       <artifactId>slf4j-api</artifactId>
       <version>2.0.16</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.5.12</version>
+      <version>1.5.16</version>
+    </dependency>
+
+
+    <!-- Microsoft Graph SDK -->
+    <!-- https://mvnrepository.com/artifact/com.microsoft.graph/microsoft-graph -->
+    <!-- Microsoft Graph SDK -->
+    <dependency>
+      <groupId>com.microsoft.graph</groupId>
+      <artifactId>microsoft-graph</artifactId>
+      <version>6.24.0</version>
     </dependency>
     <dependency>
-      <groupId>org.openjfx</groupId>
-      <artifactId>javafx-fxml</artifactId>
-      <version>23</version>
+      <groupId>com.microsoft.graph</groupId>
+      <artifactId>microsoft-graph-core</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+
+
+
+    <!-- MSAL4J para autenticación con Azure -->
+    <!-- https://mvnrepository.com/artifact/com.microsoft.azure/msal4j -->
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>msal4j</artifactId>
+      <version>1.18.0</version>
+    </dependency>
+
+
+    <!-- JSON (Jackson) para trabajar con Microsoft Graph -->
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.15.2</version>
+    </dependency>
+
+
+
+    <!-- OkHttp para realizar peticiones HTTP -->
+    <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>4.12.0</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/com.microsoft.kiota/microsoft-kiota-http-okHttp -->
+    <dependency>
+      <groupId>com.microsoft.kiota</groupId>
+      <artifactId>microsoft-kiota-http-okHttp</artifactId>
+      <version>1.8.2</version>
+      <scope>runtime</scope>
     </dependency>
 
   </dependencies>

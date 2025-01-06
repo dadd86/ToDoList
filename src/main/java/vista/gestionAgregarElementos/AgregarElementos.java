@@ -4,6 +4,7 @@ import controlador.ControladorTablas;
 import controlador.ControladorCompraComida;
 import controlador.ControladorCompraLimpieza;
 import controlador.ControladorCompraVarios;
+import vista.gestionMenuPrincipal.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;
@@ -57,6 +58,8 @@ public class AgregarElementos {
     private ControladorCompraComida controladorCompraComida;
     private ControladorCompraLimpieza controladorCompraLimpieza;
     private ControladorCompraVarios controladorCompraVarios;
+    private SceneManager sceneManager;
+
 
     /**
      * Constructor que inicializa los controladores específicos y el DAO para interactuar con la base de datos.

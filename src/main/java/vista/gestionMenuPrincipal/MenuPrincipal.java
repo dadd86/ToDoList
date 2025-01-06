@@ -5,7 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import excepciones.SceneManagerException;
+import excepciones.*;
 
 public class MenuPrincipal {
 
