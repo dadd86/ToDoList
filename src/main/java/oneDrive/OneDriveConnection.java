@@ -15,7 +15,6 @@ import java.util.Collections;
 
 public class OneDriveConnection {
 
-
     /**
      * Obtiene el token de acceso y lo guarda en un archivo para su reutilización.
      * @return El token de acceso.
