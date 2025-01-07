@@ -1,0 +1,25 @@
+# Microsoft Graph SDK for Python
+msal==1.23.0                  # Para autenticación con Azure AD
+msal-extensions==1.0.0        # Manejo avanzado de tokens persistentes
+
+# HTTP Client para peticiones REST
+requests==2.31.0              # Para realizar solicitudes HTTP
+urllib3==1.26.15              # Biblioteca complementaria para `requests`
+
+# Utilidades para manejo de datos
+pandas==2.1.1                 # Manejo avanzado de datos tabulares (opcional, según la lógica)
+python-dotenv==1.0.0          # Carga de variables de entorno desde archivos .env
+
+# Manejo de formatos JSON
+simplejson==3.19.2            # Alternativa rápida para manejo de JSON (opcional)
+
+# Librerías para depuración y desarrollo
+loguru==0.7.0                 # Para logging estructurado y avanzado
+ipython==8.16.1               # Consola interactiva para pruebas y depuración
+
+# Microsoft Graph API utilities
+msgraph-core==0.2.2           # Extensiones adicionales para manejar Graph API
+python-dateutil==2.8.2        # Manejo de fechas (útil con Graph API)
+
+# Integración con sistemas externos
+pyinstaller==5.13.0           # Opcional, para empaquetar el script en un ejecutable
