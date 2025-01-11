@@ -35,6 +35,10 @@ target/
 Certificados/.env
 # Ignorar archivos de configuración sensibles
 Certificados/Credenciales.env
+Certificados/client_secret.json
+Certificados/token.json
+Python/token.json
+token.json
 
 # MacOS
 .DS_Store
