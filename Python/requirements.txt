@@ -23,3 +23,4 @@ python-dateutil==2.8.2        # Manejo de fechas (útil con Graph API)
 
 # Integración con sistemas externos
 pyinstaller==5.13.0           # Opcional, para empaquetar el script en un ejecutable
+pip install pre-commit
