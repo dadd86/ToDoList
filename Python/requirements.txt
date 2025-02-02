@@ -28,7 +28,10 @@ msal==1.23.0
 requests==2.31.0
 tenacity==8.2.2
 python-dotenv==1.0.0
+<<<<<<< HEAD
 pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
 pip install python-dotenv
 
+=======
+>>>>>>> b2f110ae6211a784e2900ac11ca5a7768e220796
 
