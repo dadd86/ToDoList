@@ -35,6 +35,7 @@ target/
 Certificados/.env
 # Ignorar archivos de configuración sensibles
 Certificados/Credenciales.env
+token.json
 <<<<<<< HEAD
 Certificados/client_secret.json
 Certificados/token.json
