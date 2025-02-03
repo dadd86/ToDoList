@@ -234,8 +234,7 @@ def assign_permissions_to_all_files(service, folder_id, role="writer", type="any
     except Exception as e:
         print(f"❌ Error inesperado: {e}")
         raise
-
-
+    
 def list_folder_permissions(service, folder_id):
     """
     Lista los permisos actuales de una carpeta en Google Drive.
@@ -268,14 +267,3 @@ def list_folder_permissions(service, folder_id):
     except Exception as e:
         print(f"❌ Error inesperado: {e}")
         raise
-    
-def delete_folder(service, folder_id):
-    """
-    Elimina una carpeta en Google Drive si la aplicación tiene permisos.
-    """
-    try:
-        service.files().delete(fileId=folder_id).execute()
-        print(f"✅ Carpeta con ID {folder_id} eliminada correctamente.")
-    except Exception as e:
-        print(f"❌ Error al eliminar la carpeta: {e}")
-

@@ -1,8 +1,9 @@
+import os
+from googleapiclient.errors import HttpError
+from googleapiclient.http import MediaFileUpload
 from util import authenticate, set_folder_permissions, extract_drive_id
 from File import open_file_from_photos, list_file_permissions, download_file, upload_file_to_photos
 from Folder import find_folder, get_folder_parents, create_folder, list_files_in_folder, list_folder_permissions, assign_permissions_to_all_files
-import os
-
 
 def main():
     """
@@ -12,6 +13,7 @@ def main():
     2️⃣ Obtiene y verifica los IDs del archivo y la carpeta.
     3️⃣ Verifica y asigna permisos a la carpeta y archivos.
     4️⃣ Descarga un archivo desde la carpeta 'Fotos' en Google Drive.
+    5️⃣ Sube un archivo a la carpeta 'Fotos'.
 
     Excepciones manejadas:
     ----------------------
@@ -21,7 +23,7 @@ def main():
     - Exception: Otros errores generales.
     """
     try:
-        # 🔹 1. Autenticar con Google Drive
+        # 🔹 1. Autenticación con Google Drive
         print("🔄 Iniciando autenticación con Google Drive...")
         service = authenticate()
         print("✅ Autenticación exitosa.")
@@ -114,8 +116,8 @@ def main():
             print(f"❌ Error al abrir el archivo '{file_name}': {e}")
             
         # 🔹 10. Subir archivo
-        upload_file = "updateTeste.jpg"  # Reemplazar con un archivo existente en tu sistema
-        upload_path = "../descargas/updateTeste.jpg"
+        upload_file = "example.jpg"  # Reemplazar con un archivo existente en tu sistema
+        upload_path = "../descargas/example.jpg"
         
         try:
             print(f"📤 Subiendo el archivo {upload_file} a la carpeta 'Fotos'...")
@@ -125,7 +127,6 @@ def main():
 
     except Exception as e:
         print(f"❌ Se produjo un error durante la ejecución: {e}")
-
 
 if __name__ == "__main__":
     main()
